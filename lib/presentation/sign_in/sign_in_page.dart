@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mess_management_app/application/auth/bloc/sign_in_bloc.dart';
+import 'package:mess_management_app/presentation/dashboard/dashboard.dart';
 import 'package:mess_management_app/presentation/sign_in/sign_up_page.dart';
 
 class SignInForm extends StatelessWidget {
@@ -31,7 +32,12 @@ class SignInForm extends StatelessWidget {
               ),
             ),
             (r) {
-              //TODO: Navigation
+             
+              return Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const DashboardPage(),
+                ),
+              );
             },
           ),
         );
@@ -81,7 +87,8 @@ class SignInForm extends StatelessWidget {
                   if (_formKey.currentState!.validate()) {
                     context.read<SignInBloc>().add(
                           SignInEvent.signInWithEmailAndPasword(
-                              emailController.text, passwordController.text),
+                              emailController.text.trim(),
+                              passwordController.text.trim()),
                         );
                   }
                 },
@@ -96,7 +103,6 @@ class SignInForm extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      //TODO: NAvigation
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                           builder: (context) => SignUpForm(),

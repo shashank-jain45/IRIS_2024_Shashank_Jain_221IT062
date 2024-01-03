@@ -3,9 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mess_management_app/domain/auth/auth_failure.dart';
 import 'package:mess_management_app/domain/auth/i_auth_facade.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
 
-@lazySingleton
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebase;
 

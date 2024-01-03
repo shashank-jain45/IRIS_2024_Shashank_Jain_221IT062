@@ -8,14 +8,13 @@ import 'package:mess_management_app/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:mess_management_app/injection.dart';
 import 'package:mess_management_app/presentation/core/splash_screen.dart';
-import 'package:mess_management_app/presentation/sign_in/sign_in_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureInjection(Environment.dev);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  configureInjection(Environment.dev);
   runApp(const MyApp());
 }
 
@@ -39,8 +38,9 @@ class MyApp extends StatelessWidget {
               getit<AuthBloc>()..add(const AuthEvent.authChechRequested()),
         )
       ],
-      child: const MaterialApp(
-        home: SplashScreen(),
+      child: MaterialApp(
+        theme: ThemeData.dark(),
+        home: const SplashScreen(),
       ),
     );
   }

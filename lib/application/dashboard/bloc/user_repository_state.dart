@@ -11,7 +11,7 @@ class UserRepositoryState with _$UserRepositoryState {
   factory UserRepositoryState.intial() => UserRepositoryState(
         transactions: none(),
         failureOrSuccess: none(),
-        isFetching: false,
+        isFetching: true,
         user: null,
       );
 }

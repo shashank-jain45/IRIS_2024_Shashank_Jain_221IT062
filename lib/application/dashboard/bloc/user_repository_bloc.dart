@@ -17,21 +17,21 @@ class UserRepositoryBloc
     extends Bloc<UserRepositoryEvent, UserRepositoryState> {
   final IUserDataFacade _dataFacade;
   UserRepositoryBloc(this._dataFacade) : super(UserRepositoryState.intial()) {
-    on<UserRepositoryEvent>((event, emit) {
-      on<FetchUserData>((event, emit) async {
-        return await _fetchUserData(event, emit);
-      });
-      on<FetchTransactionData>((event, emit) async {
-        return await _fetchTransactionDetails(event, emit);
-      });
-      on<SetUserData>((event, emit) async {
-        return await _setUserData(event, emit);
-      });
+    on<FetchUserData>((event, emit) async {
+      return await _fetchUserData(event, emit);
+    });
+    on<FetchTransactionData>((event, emit) async {
+      return await _fetchTransactionDetails(event, emit);
+    });
+    on<SetUserData>((event, emit) async {
+      return await _setUserData(event, emit);
     });
   }
   Future<void> _fetchUserData(
       FetchUserData event, Emitter<UserRepositoryState> emit) async {
-    emit(state.copyWith(isFetching: true));
+    emit(
+      state.copyWith(isFetching: true, user: null),
+    );
     Either<FirestoreFailure, UserClass> data =
         await _dataFacade.getUserProfile();
     data.fold(
@@ -86,6 +86,7 @@ class UserRepositoryBloc
       (r) => emit(
         state.copyWith(
           isFetching: false,
+          failureOrSuccess: none(),
         ),
       ),
     );

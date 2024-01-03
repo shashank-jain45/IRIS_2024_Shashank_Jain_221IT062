@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:mess_management_app/domain/core/firestore_failure.dart';
@@ -15,15 +14,17 @@ class FirestoreUserData implements IUserDataFacade {
   final FirebaseAuth _firebase;
   final FirebaseFirestore _firestore;
   FirestoreUserData(this._firestore, this._firebase) {
-    userId = _firebase.currentUser!.uid;
+    // userId = _firebase.currentUser!.uid;
   }
   late String userId;
 
   @override
   Future<Either<FirestoreFailure, UserClass>> getUserProfile() async {
+    userId = _firebase.currentUser!.uid;
     try {
       DocumentSnapshot doc =
           await _firestore.collection("users").doc(userId).get();
+
       if (doc.data() == null) {
         return left(const FirestoreFailure.notFound());
       }
@@ -39,6 +40,7 @@ class FirestoreUserData implements IUserDataFacade {
   @override
   Future<Either<FirestoreFailure, List<model.Transaction>>>
       getUserTransactionHistory() async {
+    userId = _firebase.currentUser!.uid;
     try {
       QuerySnapshot doc = await _firestore
           .collection("users")
@@ -53,11 +55,12 @@ class FirestoreUserData implements IUserDataFacade {
 
   @override
   Future<Either<FirestoreFailure, Unit>> setUserProfile(UserClass user) async {
+    userId = _firebase.currentUser!.uid;
     try {
       UserClass usersData = user.copyWith(email: _firebase.currentUser!.email!);
       await _firestore.collection("users").doc(userId).set(usersData.toJson());
       return right(unit);
-    } catch (_) {
+    } on FirebaseException catch (_) {
       return left(const FirestoreFailure.permissionDenied());
     }
   }
