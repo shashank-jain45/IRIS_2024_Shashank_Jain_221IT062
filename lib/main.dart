@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mess_management_app/application/auth/bloc/sign_in_bloc.dart';
-import 'package:mess_management_app/application/auth/currentAuthStateOfUser/auth_bloc.dart';
-import 'package:mess_management_app/application/dashboard/bloc/user_repository_bloc.dart';
-import 'package:mess_management_app/firebase_options.dart';
+import 'application/auth/bloc/sign_in_bloc.dart';
+import 'application/auth/currentAuthStateOfUser/auth_bloc.dart';
+import 'application/dashboard/bloc/user_repository_bloc.dart';
+import 'infrastructure/core/firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'package:mess_management_app/injection.dart';
-import 'package:mess_management_app/presentation/core/splash_screen.dart';
+import 'domain/core/injection.dart';
+import 'presentation/core/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
+import '../core/firestore_failure.dart';
+import 'menu_model.dart';
 
 abstract class IMenuFacade {
-  Future<Either<FirestoreFailure, Unit>> getMenuDetails(String messId);
+  Future<Either<FirestoreFailure, List<DayMenu>>> getMenuDetails(String messId);
 }

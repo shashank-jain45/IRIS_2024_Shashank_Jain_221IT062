@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
-import 'package:mess_management_app/domain/mess_balance/transaction_model.dart';
+import '../core/firestore_failure.dart';
+import 'user_data_model.dart';
+import '../mess_balance/transaction_model.dart';
 
 abstract class IUserDataFacade {
   Future<Either<FirestoreFailure, UserClass>> getUserProfile();

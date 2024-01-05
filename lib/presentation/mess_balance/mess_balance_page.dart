@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:mess_management_app/application/mess_balance/bloc/mess_balance_repository_bloc.dart';
-import 'package:mess_management_app/domain/mess_balance/transaction_model.dart';
-import 'package:mess_management_app/injection.dart';
+import '../../application/mess_balance/bloc/mess_balance_repository_bloc.dart';
+import '../../domain/mess_balance/transaction_model.dart';
+import '../../domain/core/injection.dart';
 
 class MessBalancePage extends StatelessWidget {
   MessBalancePage({super.key});

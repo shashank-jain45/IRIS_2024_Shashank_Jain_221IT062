@@ -13,6 +13,10 @@ _$UserClassImpl _$$UserClassImplFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String,
       messName: json['messName'] as String? ?? "N/A",
       messBalance: (json['messBalance'] as num?)?.toDouble() ?? 0,
+      messReallocationModel: json['messReallocationModel'] == null
+          ? null
+          : MessReallocationModel.fromJson(
+              json['messReallocationModel'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$UserClassImplToJson(_$UserClassImpl instance) =>
@@ -22,4 +26,5 @@ Map<String, dynamic> _$$UserClassImplToJson(_$UserClassImpl instance) =>
       'email': instance.email,
       'messName': instance.messName,
       'messBalance': instance.messBalance,
+      'messReallocationModel': instance.messReallocationModel,
     };

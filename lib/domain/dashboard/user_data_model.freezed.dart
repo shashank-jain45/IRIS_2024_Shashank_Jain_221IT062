@@ -25,6 +25,8 @@ mixin _$UserClass {
   String get email => throw _privateConstructorUsedError;
   String get messName => throw _privateConstructorUsedError;
   double get messBalance => throw _privateConstructorUsedError;
+  MessReallocationModel? get messReallocationModel =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +44,10 @@ abstract class $UserClassCopyWith<$Res> {
       String rollNumber,
       String email,
       String messName,
-      double messBalance});
+      double messBalance,
+      MessReallocationModel? messReallocationModel});
+
+  $MessReallocationModelCopyWith<$Res>? get messReallocationModel;
 }
 
 /// @nodoc
@@ -63,6 +68,7 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
     Object? email = null,
     Object? messName = null,
     Object? messBalance = null,
+    Object? messReallocationModel = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -85,7 +91,24 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
           ? _value.messBalance
           : messBalance // ignore: cast_nullable_to_non_nullable
               as double,
+      messReallocationModel: freezed == messReallocationModel
+          ? _value.messReallocationModel
+          : messReallocationModel // ignore: cast_nullable_to_non_nullable
+              as MessReallocationModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MessReallocationModelCopyWith<$Res>? get messReallocationModel {
+    if (_value.messReallocationModel == null) {
+      return null;
+    }
+
+    return $MessReallocationModelCopyWith<$Res>(_value.messReallocationModel!,
+        (value) {
+      return _then(_value.copyWith(messReallocationModel: value) as $Val);
+    });
   }
 }
 
@@ -102,7 +125,11 @@ abstract class _$$UserClassImplCopyWith<$Res>
       String rollNumber,
       String email,
       String messName,
-      double messBalance});
+      double messBalance,
+      MessReallocationModel? messReallocationModel});
+
+  @override
+  $MessReallocationModelCopyWith<$Res>? get messReallocationModel;
 }
 
 /// @nodoc
@@ -121,6 +148,7 @@ class __$$UserClassImplCopyWithImpl<$Res>
     Object? email = null,
     Object? messName = null,
     Object? messBalance = null,
+    Object? messReallocationModel = freezed,
   }) {
     return _then(_$UserClassImpl(
       name: null == name
@@ -143,6 +171,10 @@ class __$$UserClassImplCopyWithImpl<$Res>
           ? _value.messBalance
           : messBalance // ignore: cast_nullable_to_non_nullable
               as double,
+      messReallocationModel: freezed == messReallocationModel
+          ? _value.messReallocationModel
+          : messReallocationModel // ignore: cast_nullable_to_non_nullable
+              as MessReallocationModel?,
     ));
   }
 }
@@ -155,7 +187,8 @@ class _$UserClassImpl implements _UserClass {
       required this.rollNumber,
       required this.email,
       this.messName = "N/A",
-      this.messBalance = 0});
+      this.messBalance = 0,
+      this.messReallocationModel});
 
   factory _$UserClassImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserClassImplFromJson(json);
@@ -172,10 +205,12 @@ class _$UserClassImpl implements _UserClass {
   @override
   @JsonKey()
   final double messBalance;
+  @override
+  final MessReallocationModel? messReallocationModel;
 
   @override
   String toString() {
-    return 'UserClass(name: $name, rollNumber: $rollNumber, email: $email, messName: $messName, messBalance: $messBalance)';
+    return 'UserClass(name: $name, rollNumber: $rollNumber, email: $email, messName: $messName, messBalance: $messBalance, messReallocationModel: $messReallocationModel)';
   }
 
   @override
@@ -190,13 +225,15 @@ class _$UserClassImpl implements _UserClass {
             (identical(other.messName, messName) ||
                 other.messName == messName) &&
             (identical(other.messBalance, messBalance) ||
-                other.messBalance == messBalance));
+                other.messBalance == messBalance) &&
+            (identical(other.messReallocationModel, messReallocationModel) ||
+                other.messReallocationModel == messReallocationModel));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, rollNumber, email, messName, messBalance);
+  int get hashCode => Object.hash(runtimeType, name, rollNumber, email,
+      messName, messBalance, messReallocationModel);
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +255,8 @@ abstract class _UserClass implements UserClass {
       required final String rollNumber,
       required final String email,
       final String messName,
-      final double messBalance}) = _$UserClassImpl;
+      final double messBalance,
+      final MessReallocationModel? messReallocationModel}) = _$UserClassImpl;
 
   factory _UserClass.fromJson(Map<String, dynamic> json) =
       _$UserClassImpl.fromJson;
@@ -233,6 +271,8 @@ abstract class _UserClass implements UserClass {
   String get messName;
   @override
   double get messBalance;
+  @override
+  MessReallocationModel? get messReallocationModel;
   @override
   @JsonKey(ignore: true)
   _$$UserClassImplCopyWith<_$UserClassImpl> get copyWith =>

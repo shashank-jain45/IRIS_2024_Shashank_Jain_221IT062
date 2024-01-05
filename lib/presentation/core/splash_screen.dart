@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mess_management_app/application/auth/currentAuthStateOfUser/auth_bloc.dart';
-import 'package:mess_management_app/presentation/dashboard/dashboard.dart';
-import 'package:mess_management_app/presentation/sign_in/sign_up_page.dart';
+import '../../application/auth/currentAuthStateOfUser/auth_bloc.dart';
+import '../dashboard/dashboard.dart';
+import '../sign_in/sign_up_page.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

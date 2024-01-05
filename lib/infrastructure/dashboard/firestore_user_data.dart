@@ -3,9 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
-import 'package:mess_management_app/domain/dashboard/i_user_data_facade.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
+import '../../domain/core/firestore_failure.dart';
+import '../../domain/dashboard/i_user_data_facade.dart';
+import '../../domain/dashboard/user_data_model.dart';
 import 'package:mess_management_app/domain/mess_balance/transaction_model.dart'
     as model;
 

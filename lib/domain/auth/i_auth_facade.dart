@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:mess_management_app/domain/auth/auth_failure.dart';
+import 'auth_failure.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({

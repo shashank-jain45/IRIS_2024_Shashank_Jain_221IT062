@@ -3,13 +3,13 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
-import 'package:mess_management_app/domain/mess_balance/i_mess_balance_repository_facade.dart';
+import '../../domain/core/firestore_failure.dart';
+import '../../domain/mess_balance/i_mess_balance_repository_facade.dart';
 import 'package:mess_management_app/domain/mess_balance/transaction_model.dart'
     as tra;
 
-@Injectable(as: IMessBalanceRepository)
-class MessBalanceRepository implements IMessBalanceRepository {
+@Injectable(as: IMessBalanceRepositoryFacade)
+class MessBalanceRepository implements IMessBalanceRepositoryFacade {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebase;
   MessBalanceRepository(
@@ -22,7 +22,7 @@ class MessBalanceRepository implements IMessBalanceRepository {
       tra.Transaction trans) async {
     userId = _firebase.currentUser!.uid;
     try {
-     await _firestore.collection("users").doc(userId).update(
+      await _firestore.collection("users").doc(userId).update(
         {
           "messBalance": trans.messBalance,
         },
