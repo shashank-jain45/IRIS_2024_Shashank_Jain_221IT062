@@ -10,6 +10,7 @@ abstract class MessReallocationModel with _$MessReallocationModel {
     required String requestedMess,
     required DateTime date,
   }) = _MessReallocationModel;
+
   factory MessReallocationModel.fromJson(Map<String, dynamic> json) =>
       _$MessReallocationModelFromJson(json);
 }

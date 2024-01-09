@@ -17,19 +17,20 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MessRegistrationEvent {
   String get messName => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String messName) apply,
+    required TResult Function(String messName, String? userId) apply,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String messName)? apply,
+    TResult? Function(String messName, String? userId)? apply,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String messName)? apply,
+    TResult Function(String messName, String? userId)? apply,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ abstract class $MessRegistrationEventCopyWith<$Res> {
           $Res Function(MessRegistrationEvent) then) =
       _$MessRegistrationEventCopyWithImpl<$Res, MessRegistrationEvent>;
   @useResult
-  $Res call({String messName});
+  $Res call({String messName, String? userId});
 }
 
 /// @nodoc
@@ -79,12 +80,17 @@ class _$MessRegistrationEventCopyWithImpl<$Res,
   @override
   $Res call({
     Object? messName = null,
+    Object? userId = freezed,
   }) {
     return _then(_value.copyWith(
       messName: null == messName
           ? _value.messName
           : messName // ignore: cast_nullable_to_non_nullable
               as String,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -98,7 +104,7 @@ abstract class _$$MessRegistrationEventApplyImplCopyWith<$Res>
       __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String messName});
+  $Res call({String messName, String? userId});
 }
 
 /// @nodoc
@@ -115,12 +121,17 @@ class __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? messName = null,
+    Object? userId = freezed,
   }) {
     return _then(_$MessRegistrationEventApplyImpl(
       null == messName
           ? _value.messName
           : messName // ignore: cast_nullable_to_non_nullable
               as String,
+      freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -128,14 +139,16 @@ class __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
-  const _$MessRegistrationEventApplyImpl(this.messName);
+  const _$MessRegistrationEventApplyImpl(this.messName, this.userId);
 
   @override
   final String messName;
+  @override
+  final String? userId;
 
   @override
   String toString() {
-    return 'MessRegistrationEvent.apply(messName: $messName)';
+    return 'MessRegistrationEvent.apply(messName: $messName, userId: $userId)';
   }
 
   @override
@@ -144,11 +157,12 @@ class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
         (other.runtimeType == runtimeType &&
             other is _$MessRegistrationEventApplyImpl &&
             (identical(other.messName, messName) ||
-                other.messName == messName));
+                other.messName == messName) &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, messName);
+  int get hashCode => Object.hash(runtimeType, messName, userId);
 
   @JsonKey(ignore: true)
   @override
@@ -160,27 +174,27 @@ class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String messName) apply,
+    required TResult Function(String messName, String? userId) apply,
   }) {
-    return apply(messName);
+    return apply(messName, userId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String messName)? apply,
+    TResult? Function(String messName, String? userId)? apply,
   }) {
-    return apply?.call(messName);
+    return apply?.call(messName, userId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String messName)? apply,
+    TResult Function(String messName, String? userId)? apply,
     required TResult orElse(),
   }) {
     if (apply != null) {
-      return apply(messName);
+      return apply(messName, userId);
     }
     return orElse();
   }
@@ -215,11 +229,14 @@ class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
 }
 
 abstract class MessRegistrationEventApply implements MessRegistrationEvent {
-  const factory MessRegistrationEventApply(final String messName) =
+  const factory MessRegistrationEventApply(
+          final String messName, final String? userId) =
       _$MessRegistrationEventApplyImpl;
 
   @override
   String get messName;
+  @override
+  String? get userId;
   @override
   @JsonKey(ignore: true)
   _$$MessRegistrationEventApplyImplCopyWith<_$MessRegistrationEventApplyImpl>

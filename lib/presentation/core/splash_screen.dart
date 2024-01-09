@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/auth/currentAuthStateOfUser/auth_bloc.dart';
-import '../dashboard/dashboard.dart';
+import '../dashboard/dashboard_splash_screen.dart';
 import '../sign_in/sign_up_page.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
             //     ),
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => const DashboardPage(),
+                builder: (context) => const DashboardSplashScreen(),
               ),
             ),
           },
@@ -31,7 +31,9 @@ class SplashScreen extends StatelessWidget {
         );
       },
       child: const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

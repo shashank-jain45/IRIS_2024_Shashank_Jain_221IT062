@@ -24,7 +24,9 @@ class MessReallocationRepository implements IMessReallocationRepositoryFacade {
           .update({"messReallocationModel": messReallocationModel.toJson()});
       return right(unit);
     } catch (_) {
-      return left(const FirestoreFailure.permissionDenied());
+      return left(
+        const FirestoreFailure.permissionDenied(),
+      );
     }
   }
 }

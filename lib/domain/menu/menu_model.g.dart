@@ -6,30 +6,26 @@ part of 'menu_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EachMealMenuImpl _$$EachMealMenuImplFromJson(Map<String, dynamic> json) =>
-    _$EachMealMenuImpl(
-      name: json['name'] as String,
-      timings: json['timings'] as String,
-      items: json['items'] as String,
+_$MenuImpl _$$MenuImplFromJson(Map<String, dynamic> json) => _$MenuImpl(
+      menu: json['menu'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$EachMealMenuImplToJson(_$EachMealMenuImpl instance) =>
+Map<String, dynamic> _$$MenuImplToJson(_$MenuImpl instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'timings': instance.timings,
-      'items': instance.items,
+      'menu': instance.menu,
     };
 
 _$DayMenuImpl _$$DayMenuImplFromJson(Map<String, dynamic> json) =>
     _$DayMenuImpl(
-      dayMenu: (json['dayMenu'] as List<dynamic>)
-          .map((e) => EachMealMenu.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      index: json['index'] as int,
+      items: (json['items'] as List<dynamic>).map((e) => e as String).toList(),
+      time: (json['time'] as List<dynamic>).map((e) => e as String).toList(),
+      mealName:
+          (json['mealName'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$DayMenuImplToJson(_$DayMenuImpl instance) =>
     <String, dynamic>{
-      'dayMenu': instance.dayMenu,
-      'index': instance.index,
+      'items': instance.items,
+      'time': instance.time,
+      'mealName': instance.mealName,
     };

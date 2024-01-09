@@ -9,6 +9,7 @@ part of 'user_data_model.dart';
 _$UserClassImpl _$$UserClassImplFromJson(Map<String, dynamic> json) =>
     _$UserClassImpl(
       name: json['name'] as String,
+      id: json['id'] as String?,
       rollNumber: json['rollNumber'] as String,
       email: json['email'] as String,
       messName: json['messName'] as String? ?? "N/A",
@@ -17,14 +18,17 @@ _$UserClassImpl _$$UserClassImplFromJson(Map<String, dynamic> json) =>
           ? null
           : MessReallocationModel.fromJson(
               json['messReallocationModel'] as Map<String, dynamic>),
+      isAdmin: json['isAdmin'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$UserClassImplToJson(_$UserClassImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
+      'id': instance.id,
       'rollNumber': instance.rollNumber,
       'email': instance.email,
       'messName': instance.messName,
       'messBalance': instance.messBalance,
-      'messReallocationModel': instance.messReallocationModel,
+      'messReallocationModel': instance.messReallocationModel?.toJson(),
+      'isAdmin': instance.isAdmin,
     };

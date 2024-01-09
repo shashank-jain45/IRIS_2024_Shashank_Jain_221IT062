@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/auth/bloc/sign_in_bloc.dart';
-import '../dashboard/dashboard.dart';
+import '../dashboard/dashboard_splash_screen.dart';
 import 'sign_up_page.dart';
 
 class SignInForm extends StatelessWidget {
@@ -34,7 +34,7 @@ class SignInForm extends StatelessWidget {
             (r) {
               return Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => const DashboardPage(),
+                  builder: (context) => const DashboardSplashScreen(),
                 ),
               );
             },

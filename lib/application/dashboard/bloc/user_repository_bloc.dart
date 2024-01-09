@@ -65,7 +65,6 @@ class UserRepositoryBloc
       (r) => emit(
         state.copyWith(
           isFetching: false,
-          transactions: optionOf(r),
         ),
       ),
     );

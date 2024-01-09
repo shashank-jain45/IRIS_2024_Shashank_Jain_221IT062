@@ -15,8 +15,11 @@ class MessRegistration implements IMessRegistrationRepositoryFacade {
   );
   @override
   Future<Either<FirestoreFailure, Unit>> applyFormMessRegistration(
-      String messName) async {
+      String messName, String? userId) async {
     String userid = _firebaseAuth.currentUser!.uid;
+    if (userId != null) {
+      userid = userId;
+    }
     try {
       await _firestore
           .collection("users")

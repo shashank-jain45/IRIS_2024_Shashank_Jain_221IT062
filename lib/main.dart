@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 import 'application/auth/bloc/sign_in_bloc.dart';
 import 'application/auth/currentAuthStateOfUser/auth_bloc.dart';
@@ -39,8 +40,25 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        theme: ThemeData.dark(),
+        theme: ThemeData(
+          textTheme: Typography.whiteRedmond.copyWith(
+            bodyMedium: GoogleFonts.exo2(),
+            bodySmall: GoogleFonts.exo2(),
+            labelSmall:
+                GoogleFonts.exo2(fontWeight: FontWeight.bold, fontSize: 17),
+            bodyLarge: GoogleFonts.exo2(),
+          ),
+          colorScheme: ColorScheme.fromSeed(
+            brightness: Brightness.dark,
+            seedColor: const Color.fromRGBO(114, 134, 250, 1),
+            primaryContainer: const Color.fromRGBO(114, 134, 250, 1),
+          ),
+          // colorSchemeSeed: const Color.fromARGB(255, 66, 85, 192),
+          useMaterial3: true,
+          // brightness: Brightness.dark,
+        ),
         home: const SplashScreen(),
+        color: Colors.indigo,
       ),
     );
   }

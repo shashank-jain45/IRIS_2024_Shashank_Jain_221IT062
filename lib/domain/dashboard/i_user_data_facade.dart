@@ -8,4 +8,6 @@ abstract class IUserDataFacade {
   Future<Either<FirestoreFailure, Unit>> setUserProfile(UserClass user);
   Future<Either<FirestoreFailure, List<Transaction>>>
       getUserTransactionHistory();
+Future<Either<FirestoreFailure,List<UserClass>>> reallocationRequestList();
+Future<Either<FirestoreFailure, Unit>> applyReallocationStatus(bool isApproved,UserClass user);
 }

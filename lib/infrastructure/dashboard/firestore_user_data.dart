@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
-
+import 'package:mess_management_app/domain/mess_reallocation/mess_reallocation.dart';
 import '../../domain/core/firestore_failure.dart';
 import '../../domain/dashboard/i_user_data_facade.dart';
 import '../../domain/dashboard/user_data_model.dart';
@@ -56,14 +56,78 @@ class FirestoreUserData implements IUserDataFacade {
   @override
   Future<Either<FirestoreFailure, Unit>> setUserProfile(UserClass user) async {
     userId = _firebase.currentUser!.uid;
+
     try {
-      UserClass usersData = user.copyWith(email: _firebase.currentUser!.email!);
+      UserClass usersData =
+          user.copyWith(email: _firebase.currentUser!.email!, id: userId);
       await _firestore.collection("users").doc(userId).set(usersData.toJson());
       return right(unit);
     } on FirebaseException catch (_) {
+      return left(
+        const FirestoreFailure.permissionDenied(),
+      );
+    }
+  }
+
+  @override
+  Future<Either<FirestoreFailure, List<UserClass>>>
+      reallocationRequestList() async {
+    try {
+      QuerySnapshot<Map<String, dynamic>> docs = await _firestore
+          .collection("users")
+          .where("messReallocationModel.isPending", isEqualTo: true)
+          .get();
+      if (docs.docs.isEmpty) {
+        return left(
+          const FirestoreFailure.notFound(),
+        );
+      }
+      return Right(docs.docs.map(_docToUsers).toList());
+    } catch (_) {
       return left(const FirestoreFailure.permissionDenied());
     }
   }
+
+  @override
+  Future<Either<FirestoreFailure, Unit>> applyReallocationStatus(
+      bool isApproved, UserClass user) async {
+    userId = user.id!;
+    MessReallocationModel model = user.messReallocationModel!.copyWith(
+      isApproved: isApproved,
+      isPending: false,
+    );
+    try {
+      if (isApproved) {
+        await _firestore.collection("mess").doc(user.messName).update(
+          {
+            "noOfUsersRegistered": FieldValue.increment(-1),
+          },
+        );
+        await _firestore.collection("mess").doc(model.requestedMess).update(
+          {
+            "noOfUsersRegistered": FieldValue.increment(1),
+          },
+        );
+
+        user = user.copyWith(
+          messName: model.requestedMess,
+        );
+      }
+      UserClass usersData = user.copyWith(messReallocationModel: model);
+      await _firestore.collection("users").doc(userId).set(
+            usersData.toJson(),
+          );
+      return right(unit);
+    } on FirebaseException catch (_) {
+      return left(
+        const FirestoreFailure.permissionDenied(),
+      );
+    }
+  }
+}
+
+UserClass _docToUsers(DocumentSnapshot doc) {
+  return UserClass.fromJson(doc.data() as Map<String, dynamic>);
 }
 
 //Function to map doc to transaction

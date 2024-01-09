@@ -32,8 +32,8 @@ class MessBalancePage extends StatelessWidget {
                       style: TextStyle(fontSize: 25),
                     ),
                     trailing: Text(
-                      "Rs ${state.messBalance}",
-                      style: const TextStyle(fontSize: 25),
+                      "₹ ${state.messBalance}",
+                      style: const TextStyle(fontSize: 25, color: Colors.green),
                     ),
                   ),
                   Row(
@@ -97,13 +97,13 @@ class MessBalancePage extends StatelessWidget {
                               return ListTile(
                                 title: const Text("Mess Balance:"),
                                 subtitle: Text(
-                                  "Rs ${trans[index].messBalance}",
+                                  "₹ ${trans[index].messBalance}",
                                 ),
                                 trailing: Text(
                                   DateFormat.yMMMMd().format(trans[index].time),
                                 ),
                                 leading: Text(
-                                  "Rs ${trans[index].credit}",
+                                  "₹ ${trans[index].credit}",
                                   style: const TextStyle(
                                     color: Colors.green,
                                   ),

@@ -12,15 +12,8 @@ class MessReallocationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getit<MessReallocationBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getit<MessDetailsBloc>(),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => getit<MessReallocationBloc>(),
       child: BlocConsumer<MessReallocationBloc, MessReallocationState>(
         listener: (context, state) {
           state.failure.fold(
@@ -72,15 +65,11 @@ class MessReallocationPage extends StatelessWidget {
                             ],
                           )
                         : const SizedBox(),
-                    BlocBuilder<MessDetailsBloc, MessDetailsState>(
-                      builder: (context, state) {
-                        return Expanded(
-                          child: MessInfoPage(
-                            messList: state.messList,
-                            t: 1,
-                          ),
-                        );
-                      },
+                    Expanded(
+                      child: MessInfoPage(
+                        t: 1,
+                        isAdmin: false,
+                      ),
                     ),
                   ],
                 ),

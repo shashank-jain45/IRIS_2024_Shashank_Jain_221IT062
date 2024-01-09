@@ -475,8 +475,6 @@ abstract class SetUserData implements UserRepositoryEvent {
 /// @nodoc
 mixin _$UserRepositoryState {
   UserClass? get user => throw _privateConstructorUsedError;
-  Option<List<Transaction>> get transactions =>
-      throw _privateConstructorUsedError;
   bool get isFetching => throw _privateConstructorUsedError;
   Option<FirestoreFailure> get failureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -494,7 +492,6 @@ abstract class $UserRepositoryStateCopyWith<$Res> {
   @useResult
   $Res call(
       {UserClass? user,
-      Option<List<Transaction>> transactions,
       bool isFetching,
       Option<FirestoreFailure> failureOrSuccess});
 
@@ -515,7 +512,6 @@ class _$UserRepositoryStateCopyWithImpl<$Res, $Val extends UserRepositoryState>
   @override
   $Res call({
     Object? user = freezed,
-    Object? transactions = null,
     Object? isFetching = null,
     Object? failureOrSuccess = null,
   }) {
@@ -524,10 +520,6 @@ class _$UserRepositoryStateCopyWithImpl<$Res, $Val extends UserRepositoryState>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserClass?,
-      transactions: null == transactions
-          ? _value.transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as Option<List<Transaction>>,
       isFetching: null == isFetching
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
@@ -562,7 +554,6 @@ abstract class _$$userRepositoryImplCopyWith<$Res>
   @useResult
   $Res call(
       {UserClass? user,
-      Option<List<Transaction>> transactions,
       bool isFetching,
       Option<FirestoreFailure> failureOrSuccess});
 
@@ -582,7 +573,6 @@ class __$$userRepositoryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
-    Object? transactions = null,
     Object? isFetching = null,
     Object? failureOrSuccess = null,
   }) {
@@ -591,10 +581,6 @@ class __$$userRepositoryImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserClass?,
-      transactions: null == transactions
-          ? _value.transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as Option<List<Transaction>>,
       isFetching: null == isFetching
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
@@ -614,14 +600,11 @@ class _$userRepositoryImpl
     implements _userRepository {
   const _$userRepositoryImpl(
       {required this.user,
-      required this.transactions,
       required this.isFetching,
       required this.failureOrSuccess});
 
   @override
   final UserClass? user;
-  @override
-  final Option<List<Transaction>> transactions;
   @override
   final bool isFetching;
   @override
@@ -629,7 +612,7 @@ class _$userRepositoryImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserRepositoryState(user: $user, transactions: $transactions, isFetching: $isFetching, failureOrSuccess: $failureOrSuccess)';
+    return 'UserRepositoryState(user: $user, isFetching: $isFetching, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -638,7 +621,6 @@ class _$userRepositoryImpl
     properties
       ..add(DiagnosticsProperty('type', 'UserRepositoryState'))
       ..add(DiagnosticsProperty('user', user))
-      ..add(DiagnosticsProperty('transactions', transactions))
       ..add(DiagnosticsProperty('isFetching', isFetching))
       ..add(DiagnosticsProperty('failureOrSuccess', failureOrSuccess));
   }
@@ -649,8 +631,6 @@ class _$userRepositoryImpl
         (other.runtimeType == runtimeType &&
             other is _$userRepositoryImpl &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.transactions, transactions) ||
-                other.transactions == transactions) &&
             (identical(other.isFetching, isFetching) ||
                 other.isFetching == isFetching) &&
             (identical(other.failureOrSuccess, failureOrSuccess) ||
@@ -658,8 +638,8 @@ class _$userRepositoryImpl
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, user, transactions, isFetching, failureOrSuccess);
+  int get hashCode =>
+      Object.hash(runtimeType, user, isFetching, failureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -672,15 +652,12 @@ class _$userRepositoryImpl
 abstract class _userRepository implements UserRepositoryState {
   const factory _userRepository(
           {required final UserClass? user,
-          required final Option<List<Transaction>> transactions,
           required final bool isFetching,
           required final Option<FirestoreFailure> failureOrSuccess}) =
       _$userRepositoryImpl;
 
   @override
   UserClass? get user;
-  @override
-  Option<List<Transaction>> get transactions;
   @override
   bool get isFetching;
   @override

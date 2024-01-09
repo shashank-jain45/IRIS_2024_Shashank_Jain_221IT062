@@ -22,7 +22,7 @@ class MessRegistrationBloc
         );
         final Either<FirestoreFailure, Unit> failureOrSuccess =
             await _iMessRegistrationRepositoryFacade
-                .applyFormMessRegistration(event.messName);
+                .applyFormMessRegistration(event.messName,event.userId);
 
         failureOrSuccess.fold(
           (l) => emit(

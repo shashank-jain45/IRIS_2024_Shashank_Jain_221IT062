@@ -21,12 +21,14 @@ UserClass _$UserClassFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserClass {
   String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String get rollNumber => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get messName => throw _privateConstructorUsedError;
   double get messBalance => throw _privateConstructorUsedError;
   MessReallocationModel? get messReallocationModel =>
       throw _privateConstructorUsedError;
+  bool? get isAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,11 +43,13 @@ abstract class $UserClassCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
+      String? id,
       String rollNumber,
       String email,
       String messName,
       double messBalance,
-      MessReallocationModel? messReallocationModel});
+      MessReallocationModel? messReallocationModel,
+      bool? isAdmin});
 
   $MessReallocationModelCopyWith<$Res>? get messReallocationModel;
 }
@@ -64,17 +68,23 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
   @override
   $Res call({
     Object? name = null,
+    Object? id = freezed,
     Object? rollNumber = null,
     Object? email = null,
     Object? messName = null,
     Object? messBalance = null,
     Object? messReallocationModel = freezed,
+    Object? isAdmin = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       rollNumber: null == rollNumber
           ? _value.rollNumber
           : rollNumber // ignore: cast_nullable_to_non_nullable
@@ -95,6 +105,10 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
           ? _value.messReallocationModel
           : messReallocationModel // ignore: cast_nullable_to_non_nullable
               as MessReallocationModel?,
+      isAdmin: freezed == isAdmin
+          ? _value.isAdmin
+          : isAdmin // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -122,11 +136,13 @@ abstract class _$$UserClassImplCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
+      String? id,
       String rollNumber,
       String email,
       String messName,
       double messBalance,
-      MessReallocationModel? messReallocationModel});
+      MessReallocationModel? messReallocationModel,
+      bool? isAdmin});
 
   @override
   $MessReallocationModelCopyWith<$Res>? get messReallocationModel;
@@ -144,17 +160,23 @@ class __$$UserClassImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? id = freezed,
     Object? rollNumber = null,
     Object? email = null,
     Object? messName = null,
     Object? messBalance = null,
     Object? messReallocationModel = freezed,
+    Object? isAdmin = freezed,
   }) {
     return _then(_$UserClassImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       rollNumber: null == rollNumber
           ? _value.rollNumber
           : rollNumber // ignore: cast_nullable_to_non_nullable
@@ -175,6 +197,10 @@ class __$$UserClassImplCopyWithImpl<$Res>
           ? _value.messReallocationModel
           : messReallocationModel // ignore: cast_nullable_to_non_nullable
               as MessReallocationModel?,
+      isAdmin: freezed == isAdmin
+          ? _value.isAdmin
+          : isAdmin // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -184,17 +210,21 @@ class __$$UserClassImplCopyWithImpl<$Res>
 class _$UserClassImpl implements _UserClass {
   const _$UserClassImpl(
       {required this.name,
+      this.id,
       required this.rollNumber,
       required this.email,
       this.messName = "N/A",
       this.messBalance = 0,
-      this.messReallocationModel});
+      this.messReallocationModel,
+      this.isAdmin = false});
 
   factory _$UserClassImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserClassImplFromJson(json);
 
   @override
   final String name;
+  @override
+  final String? id;
   @override
   final String rollNumber;
   @override
@@ -207,10 +237,13 @@ class _$UserClassImpl implements _UserClass {
   final double messBalance;
   @override
   final MessReallocationModel? messReallocationModel;
+  @override
+  @JsonKey()
+  final bool? isAdmin;
 
   @override
   String toString() {
-    return 'UserClass(name: $name, rollNumber: $rollNumber, email: $email, messName: $messName, messBalance: $messBalance, messReallocationModel: $messReallocationModel)';
+    return 'UserClass(name: $name, id: $id, rollNumber: $rollNumber, email: $email, messName: $messName, messBalance: $messBalance, messReallocationModel: $messReallocationModel, isAdmin: $isAdmin)';
   }
 
   @override
@@ -219,6 +252,7 @@ class _$UserClassImpl implements _UserClass {
         (other.runtimeType == runtimeType &&
             other is _$UserClassImpl &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.rollNumber, rollNumber) ||
                 other.rollNumber == rollNumber) &&
             (identical(other.email, email) || other.email == email) &&
@@ -227,13 +261,14 @@ class _$UserClassImpl implements _UserClass {
             (identical(other.messBalance, messBalance) ||
                 other.messBalance == messBalance) &&
             (identical(other.messReallocationModel, messReallocationModel) ||
-                other.messReallocationModel == messReallocationModel));
+                other.messReallocationModel == messReallocationModel) &&
+            (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, rollNumber, email,
-      messName, messBalance, messReallocationModel);
+  int get hashCode => Object.hash(runtimeType, name, id, rollNumber, email,
+      messName, messBalance, messReallocationModel, isAdmin);
 
   @JsonKey(ignore: true)
   @override
@@ -252,17 +287,21 @@ class _$UserClassImpl implements _UserClass {
 abstract class _UserClass implements UserClass {
   const factory _UserClass(
       {required final String name,
+      final String? id,
       required final String rollNumber,
       required final String email,
       final String messName,
       final double messBalance,
-      final MessReallocationModel? messReallocationModel}) = _$UserClassImpl;
+      final MessReallocationModel? messReallocationModel,
+      final bool? isAdmin}) = _$UserClassImpl;
 
   factory _UserClass.fromJson(Map<String, dynamic> json) =
       _$UserClassImpl.fromJson;
 
   @override
   String get name;
+  @override
+  String? get id;
   @override
   String get rollNumber;
   @override
@@ -273,6 +312,8 @@ abstract class _UserClass implements UserClass {
   double get messBalance;
   @override
   MessReallocationModel? get messReallocationModel;
+  @override
+  bool? get isAdmin;
   @override
   @JsonKey(ignore: true)
   _$$UserClassImplCopyWith<_$UserClassImpl> get copyWith =>
