@@ -20,6 +20,7 @@
 ## Non-implemented/Planned features
 1. Notification for balance reminder and reallocation requests.
 2. Leave requests by user
+3. Week-wise Menu addition
 
 ## Known-bugs
 1. Page is popped when the user applies for mess reallocation
