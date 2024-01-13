@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
-import 'package:mess_management_app/domain/mess_details/i_mess_details_repository.dart';
+import '../../domain/core/firestore_failure.dart';
+import '../../domain/mess_details/i_mess_details_repository.dart';
 import '../../domain/mess_details/mess_model.dart';
 
 @LazySingleton(as: IMessDetailsRepositoryFacade)

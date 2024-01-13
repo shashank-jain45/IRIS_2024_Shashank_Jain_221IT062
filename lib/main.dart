@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
+import 'firebase_notifications.dart';
 import 'application/auth/bloc/sign_in_bloc.dart';
 import 'application/auth/currentAuthStateOfUser/auth_bloc.dart';
 import 'application/dashboard/bloc/user_repository_bloc.dart';
@@ -10,11 +12,18 @@ import 'package:flutter/material.dart';
 import 'domain/core/injection.dart';
 import 'presentation/core/splash_screen.dart';
 
+//function to listen to background changes
+Future _firebaseBackgorundMessage(RemoteMessage message) async {
+  if (message.notification != null) {}
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  PushNotifications.init();
+  FirebaseMessaging.onBackgroundMessage(_firebaseBackgorundMessage);
   configureInjection(Environment.dev);
   runApp(const MyApp());
 }

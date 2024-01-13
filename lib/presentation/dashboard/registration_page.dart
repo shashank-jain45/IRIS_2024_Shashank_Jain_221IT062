@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mess_management_app/application/dashboard/bloc/user_repository_bloc.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
+import '../../application/dashboard/bloc/user_repository_bloc.dart';
+import '../../domain/dashboard/user_data_model.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({

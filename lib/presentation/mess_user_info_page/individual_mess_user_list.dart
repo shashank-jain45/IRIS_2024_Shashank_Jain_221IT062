@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:mess_management_app/application/mess_registration/bloc/mess_registration_bloc.dart';
-import 'package:mess_management_app/application/mess_user_info/bloc/mess_user_info_bloc.dart';
-import 'package:mess_management_app/domain/core/injection.dart';
-import 'package:mess_management_app/domain/mess_details/mess_model.dart';
+import '../../application/mess_registration/bloc/mess_registration_bloc.dart';
+import '../../application/mess_user_info/bloc/mess_user_info_bloc.dart';
+import '../../domain/core/injection.dart';
+import '../../domain/mess_details/mess_model.dart';
 
 import '../../domain/menu/menu_model.dart';
 
@@ -13,12 +13,12 @@ class IndividualMessUserList extends StatelessWidget {
     Key? key,
     required this.messName,
     required this.messList,
-    required this.MessCharge,
+    required this.messCharge,
     required this.menu,
   }) : super(key: key);
   final String messName;
   final List<Mess> messList;
-  final double MessCharge;
+  final double messCharge;
   final Menu menu;
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class IndividualMessUserList extends StatelessWidget {
                                           value,
                                           state.listOfUsers[index].id,
                                           messName,
-                                          MessCharge,
+                                          messCharge,
                                           menu))
                                   : null;
                             },

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:mess_management_app/application/mess_reallocation/bloc/mess_reallocation_bloc.dart';
-import 'package:mess_management_app/domain/core/injection.dart';
-import 'package:mess_management_app/domain/mess_reallocation/mess_reallocation.dart';
-import 'package:mess_management_app/presentation/mess/mess_info_page.dart';
+import '../../application/mess_reallocation/bloc/mess_reallocation_bloc.dart';
+import '../../domain/core/injection.dart';
+import '../../domain/mess_reallocation/mess_reallocation.dart';
+import '../mess/mess_info_page.dart';
 
 class MessReallocationPage extends StatelessWidget {
   final MessReallocationModel? model;

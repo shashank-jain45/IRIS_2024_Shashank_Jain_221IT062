@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mess_management_app/domain/menu/menu_model.dart';
+import '../menu/menu_model.dart';
 import '../mess_reallocation/mess_reallocation.dart';
 part 'user_data_model.freezed.dart';
 part 'user_data_model.g.dart';

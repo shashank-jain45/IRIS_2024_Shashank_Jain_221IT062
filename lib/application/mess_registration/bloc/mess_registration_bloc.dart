@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
-import 'package:mess_management_app/domain/mess_registration/i_mess_registration_repository_facade.dart';
+import '../../../domain/core/firestore_failure.dart';
+import '../../../domain/mess_registration/i_mess_registration_repository_facade.dart';
 
 import '../../../domain/menu/menu_model.dart';
 

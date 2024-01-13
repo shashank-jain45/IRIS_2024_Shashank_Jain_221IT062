@@ -3,12 +3,14 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../domain/core/firestore_failure.dart';
 import '../../../domain/mess_balance/i_mess_balance_repository_facade.dart';
 import '../../../domain/mess_balance/transaction_model.dart';
+
+part 'mess_balance_repository_bloc.freezed.dart';
 part 'mess_balance_repository_event.dart';
 part 'mess_balance_repository_state.dart';
-part 'mess_balance_repository_bloc.freezed.dart';
 
 @injectable
 class MessBalanceRepositoryBloc

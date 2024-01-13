@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:mess_management_app/application/mess_registration/bloc/mess_registration_bloc.dart';
-import 'package:mess_management_app/domain/core/injection.dart';
-import 'package:mess_management_app/presentation/mess/mess_info_page.dart';
+import '../../application/mess_registration/bloc/mess_registration_bloc.dart';
+import '../../domain/core/injection.dart';
+import '../mess/mess_info_page.dart';
 
 class MessRegistrationPage extends StatelessWidget {
   const MessRegistrationPage({

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:mess_management_app/application/mess_details/bloc/mess_details_bloc.dart';
-import 'package:mess_management_app/application/mess_reallocation/bloc/mess_reallocation_bloc.dart';
-import 'package:mess_management_app/application/mess_registration/bloc/mess_registration_bloc.dart';
-import 'package:mess_management_app/domain/core/injection.dart';
-import 'package:mess_management_app/domain/mess_reallocation/mess_reallocation.dart';
-import 'package:mess_management_app/presentation/mess/mess_input_form.dart';
-import 'package:mess_management_app/presentation/mess_user_info_page/individual_mess_user_list.dart';
+import '../../application/mess_details/bloc/mess_details_bloc.dart';
+import '../../application/mess_reallocation/bloc/mess_reallocation_bloc.dart';
+import '../../application/mess_registration/bloc/mess_registration_bloc.dart';
+import '../../domain/core/injection.dart';
+import '../../domain/mess_reallocation/mess_reallocation.dart';
+import 'mess_input_form.dart';
+import '../mess_user_info_page/individual_mess_user_list.dart';
 
 import '../../domain/mess_details/mess_model.dart';
 import '../menu_page/menu_page.dart';
@@ -60,7 +60,7 @@ class MessInfoPage extends StatelessWidget {
                                           IndividualMessUserList(
                                         messList: messList,
                                         messName: messList[index].messName,
-                                        MessCharge: messList[index].messCharge,
+                                        messCharge: messList[index].messCharge,
                                         menu: messList[index].menuDetails,
                                       ),
                                     ));
@@ -198,6 +198,8 @@ class MessInfoPage extends StatelessWidget {
                                               builder: (context) => MenuPage(
                                                 menu:
                                                     messList[index].menuDetails,
+                                                messName:
+                                                    messList[index].messName,
                                               ),
                                             ),
                                           );

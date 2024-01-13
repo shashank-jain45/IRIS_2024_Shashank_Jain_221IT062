@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mess_management_app/domain/core/injection.dart';
+import '../../domain/core/injection.dart';
 
 import '../../application/mess_details/bloc/mess_details_bloc.dart';
 import '../../domain/menu/menu_model.dart';

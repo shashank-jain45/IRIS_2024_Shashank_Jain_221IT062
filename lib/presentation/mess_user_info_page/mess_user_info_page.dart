@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mess_management_app/presentation/mess/mess_info_page.dart';
+import '../mess/mess_info_page.dart';
 
 class MessUserInfoPage extends StatelessWidget {
   const MessUserInfoPage({super.key});

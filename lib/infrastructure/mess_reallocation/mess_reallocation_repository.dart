@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/core/firestore_failure.dart';
-import '../../domain/menu/menu_model.dart';
 import '../../domain/mess_reallocation/i_mess_reallocation_repository_facade.dart';
 import '../../domain/mess_reallocation/mess_reallocation.dart';
 
@@ -25,7 +24,6 @@ class MessReallocationRepository implements IMessReallocationRepositoryFacade {
       });
       return right(unit);
     } catch (_) {
-      print(_);
       return left(
         const FirestoreFailure.permissionDenied(),
       );

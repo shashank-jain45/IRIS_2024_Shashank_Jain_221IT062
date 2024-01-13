@@ -10,9 +10,11 @@ class MessBalancePage extends StatelessWidget {
   MessBalancePage({
     Key? key,
     required this.messCharge,
+    required this.messName,
   }) : super(key: key);
   final TextEditingController _amount = TextEditingController();
   final double messCharge;
+  final String messName;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -140,16 +142,23 @@ class MessBalancePage extends StatelessWidget {
                                       ],
                                     ),
                                     leading: trans[index].credit == 0
-                                        ? Text(
-                                            "₹ ${trans[index].debit}",
-                                            style: const TextStyle(
-                                              color: Colors.red,
+                                        ? SizedBox(
+                                            width: 90,
+                                            child: Text(
+                                              "₹ ${trans[index].debit} to $messName",
+                                              style: const TextStyle(
+                                                color: Colors.red,
+                                              ),
                                             ),
                                           )
-                                        : Text(
-                                            "₹ ${trans[index].credit}",
-                                            style: const TextStyle(
-                                              color: Colors.green,
+                                        : SizedBox(
+                                            width: 90,
+                                            child: Text(
+                                              "₹ ${trans[index].credit} added",
+                                              overflow: TextOverflow.fade,
+                                              style: const TextStyle(
+                                                color: Colors.green,
+                                              ),
                                             ),
                                           ),
                                   );
@@ -169,6 +178,8 @@ class MessBalancePage extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     child: TextButton.icon(
                       style: ButtonStyle(
+                        backgroundColor: const MaterialStatePropertyAll(
+                            Color.fromARGB(12, 0, 0, 0)),
                         shape: MaterialStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
@@ -180,15 +191,29 @@ class MessBalancePage extends StatelessWidget {
                       ),
                       icon: const Icon(Icons.payment),
                       onPressed: () {
-                        context.read<MessBalanceRepositoryBloc>().add(
-                              MessBalanceRepositoryEvent.addMessBalance(
-                                Transaction(
-                                  debit: messCharge,
-                                  messBalance: state.messBalance - messCharge,
-                                  time: DateTime.now(),
-                                ),
+                        if (state.messBalance < 200) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Color.fromRGBO(114, 134, 250, 1),
+                              content: Text(
+                                "Add mess balance to have meal!",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                               ),
-                            );
+                            ),
+                          );
+                        } else {
+                          context.read<MessBalanceRepositoryBloc>().add(
+                                MessBalanceRepositoryEvent.addMessBalance(
+                                  Transaction(
+                                    debit: messCharge,
+                                    messBalance: state.messBalance - messCharge,
+                                    time: DateTime.now(),
+                                  ),
+                                ),
+                              );
+                        }
                       },
                       label: const Text("Pay for meal",
                           style: TextStyle(fontSize: 20)),

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mess_management_app/domain/menu/menu_model.dart';
+import '../menu/menu_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'mess_model.g.dart';

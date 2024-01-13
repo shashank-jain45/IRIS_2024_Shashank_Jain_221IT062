@@ -51,10 +51,7 @@ class MessBalanceRepository implements IMessBalanceRepositoryFacade {
         .map(_transactionDetailsFromMap);
   }
 
-  @override
-  Future<Either<FirestoreFailure, Unit>> deductMealAmount(Tra) {
-    throw UnimplementedError();
-  }
+
 }
 
 List<tra.Transaction> _transactionDetailsFromMap(QuerySnapshot snapshots) {

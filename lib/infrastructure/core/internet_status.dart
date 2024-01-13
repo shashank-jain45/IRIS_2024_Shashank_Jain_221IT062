@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mess_management_app/domain/core/firestore_failure.dart';
+import '../../domain/core/firestore_failure.dart';
 
 @injectable
 class InternetStatus {

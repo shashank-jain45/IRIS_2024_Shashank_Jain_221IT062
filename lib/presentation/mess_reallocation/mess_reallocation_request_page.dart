@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:mess_management_app/application/mess_reallocation/mess_reallocation_request/bloc/mess_reallocation_request_bloc.dart';
-import 'package:mess_management_app/domain/core/injection.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
+import '../../application/mess_reallocation/mess_reallocation_request/bloc/mess_reallocation_request_bloc.dart';
+import '../../domain/core/injection.dart';
+import '../../domain/dashboard/user_data_model.dart';
 
 class MessReallocationRequestPage extends StatelessWidget {
   MessReallocationRequestPage({

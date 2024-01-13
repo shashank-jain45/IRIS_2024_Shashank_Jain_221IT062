@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mess_management_app/application/auth/currentAuthStateOfUser/auth_bloc.dart';
-import 'package:mess_management_app/application/dashboard/bloc/user_repository_bloc.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
-import 'package:mess_management_app/presentation/mess/mess_info_page.dart';
-import 'package:mess_management_app/presentation/mess_reallocation/mess_reallocation_request_page.dart';
-import 'package:mess_management_app/presentation/mess_registration/mess_registration.dart';
-import 'package:mess_management_app/presentation/mess_user_info_page/mess_user_info_page.dart';
-import 'package:mess_management_app/presentation/sign_in/sign_in_page.dart';
+import '../../application/auth/currentAuthStateOfUser/auth_bloc.dart';
+import '../../application/dashboard/bloc/user_repository_bloc.dart';
+import '../../domain/dashboard/user_data_model.dart';
+import '../mess_reallocation/mess_reallocation_request_page.dart';
+import '../mess_user_info_page/mess_user_info_page.dart';
+import '../sign_in/sign_in_page.dart';
 
 class AdminPage extends StatelessWidget {
   const AdminPage({

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mess_management_app/application/auth/currentAuthStateOfUser/auth_bloc.dart';
-import 'package:mess_management_app/application/dashboard/bloc/user_repository_bloc.dart';
-import 'package:mess_management_app/domain/dashboard/user_data_model.dart';
-import 'package:mess_management_app/domain/menu/menu_model.dart';
-import 'package:mess_management_app/presentation/menu_page/menu_page.dart';
-import 'package:mess_management_app/presentation/mess_balance/mess_balance_page.dart';
-import 'package:mess_management_app/presentation/mess_registration/mess_registration.dart';
-import 'package:mess_management_app/presentation/sign_in/sign_in_page.dart';
+import '../../application/auth/currentAuthStateOfUser/auth_bloc.dart';
+import '../../application/dashboard/bloc/user_repository_bloc.dart';
+import '../../domain/dashboard/user_data_model.dart';
+import '../menu_page/menu_page.dart';
+import '../mess_balance/mess_balance_page.dart';
+import '../mess_registration/mess_registration.dart';
+import '../sign_in/sign_in_page.dart';
 
 import '../mess_reallocation/mess_reallocation_page.dart';
 
@@ -136,6 +135,7 @@ class ProfilePage extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => MenuPage(
                                           menu: user.menu!,
+                                          messName: user.messName,
                                         )),
                               );
                             },
@@ -157,7 +157,7 @@ class ProfilePage extends StatelessWidget {
                             .push(
                               MaterialPageRoute(
                                 builder: (context) => MessBalancePage(
-                                    messCharge: user.messCharge),
+                                    messCharge: user.messCharge,messName: user.messName),
                               ),
                             )
                             .then(
@@ -285,7 +285,7 @@ class ProfilePage extends StatelessWidget {
                             top: Radius.circular(5)),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Align(
                       alignment: Alignment.topRight,
                       child: FloatingActionButton(

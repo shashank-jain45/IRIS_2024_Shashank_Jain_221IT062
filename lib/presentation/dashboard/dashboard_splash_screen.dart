@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mess_management_app/presentation/dashboard/admin_page.dart';
-import 'package:mess_management_app/presentation/dashboard/profile_page.dart';
-import 'package:mess_management_app/presentation/dashboard/registration_page.dart';
+import 'admin_page.dart';
+import 'profile_page.dart';
+import 'registration_page.dart';
 import '../../application/dashboard/bloc/user_repository_bloc.dart';
 import '../../domain/dashboard/user_data_model.dart';
 import '../../domain/core/injection.dart';

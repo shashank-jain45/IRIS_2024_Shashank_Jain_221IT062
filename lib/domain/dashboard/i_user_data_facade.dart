@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import '../core/firestore_failure.dart';
-import '../menu/menu_model.dart';
 import 'user_data_model.dart';
 import '../mess_balance/transaction_model.dart';
 

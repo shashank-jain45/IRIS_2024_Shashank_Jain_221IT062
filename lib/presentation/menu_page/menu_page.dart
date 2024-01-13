@@ -1,22 +1,24 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:mess_management_app/domain/menu/menu_model.dart';
-import 'package:mess_management_app/presentation/menu_page/add_menu_page.dart';
-import 'package:mess_management_app/presentation/menu_page/menu_card.dart';
+import '../../domain/menu/menu_model.dart';
+import 'menu_card.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({
     Key? key,
     required this.menu,
+    required this.messName,
   }) : super(key: key);
   final Menu menu;
+  final String messName;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Mess Menu"),
+          centerTitle: true,
+          title: Text("$messName Menu🍴"),
         ),
         body: Center(
           child: CarouselSlider(

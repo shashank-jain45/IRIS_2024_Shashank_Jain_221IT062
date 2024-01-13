@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:mess_management_app/domain/menu/menu_model.dart';
+import '../../domain/menu/menu_model.dart';
 
 class MenuCard extends StatelessWidget {
   const MenuCard({
@@ -72,31 +72,38 @@ class MealSubCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      visualDensity: const VisualDensity(vertical: 3),
-      shape: const RoundedRectangleBorder(
-        side: BorderSide(
-          color: Colors.black,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListTile(
+        leading: Container(
+          width: 4,
+          decoration: BoxDecoration(color: Colors.cyan.shade900),
         ),
-      ),
-      contentPadding: const EdgeInsets.all(8),
-      isThreeLine: true,
-      title: Text(
-        mealName ?? "Breakfast",
-        style: const TextStyle(
-          color: Colors.blue,
+        visualDensity: const VisualDensity(vertical: 3),
+        shape: const RoundedRectangleBorder(
+            side: BorderSide(
+              color: Colors.blueGrey,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        contentPadding: const EdgeInsets.all(8),
+        isThreeLine: true,
+        title: Text(
+          mealName ,
+          style: const TextStyle(
+            color: Colors.blue,
+          ),
         ),
-      ),
-      trailing: Text(
-        timings ?? "10:00 - 9:30",
-        style: TextStyle(
-          color: Colors.amber.shade700,
+        trailing: Text(
+          timings ,
+          style: TextStyle(
+            color: Colors.amber.shade700,
+          ),
         ),
-      ),
-      subtitle: Text(
-        itemNames ?? "asdasdasdsdas sdasd asdas asdasd asdasd",
-        style: const TextStyle(
-          color: Colors.white,
+        subtitle: Text(
+          itemNames ,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
     );
