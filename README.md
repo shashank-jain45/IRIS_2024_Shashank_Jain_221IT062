@@ -31,6 +31,7 @@
 
 ## Operating System Used
 Windows
+FLutter SDK 3.13.0
 
 ## Interest toward UI/UX
 I am interested more in the implementation part than the UI.
