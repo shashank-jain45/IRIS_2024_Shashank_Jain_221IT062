@@ -4,7 +4,12 @@ part 'menu_model.g.dart';
 
 @freezed
 abstract class Menu with _$Menu {
-  const factory Menu({required Map<String, dynamic> menu}) = _Menu;
+  const factory Menu({
+    required String breakfast,
+    required String lunch,
+    required String snacks,
+    required String dinner,
+  }) = _Menu;
 
   factory Menu.fromJson(Map<String, dynamic> json) => _$MenuFromJson(json);
 }

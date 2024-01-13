@@ -5,6 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:mess_management_app/domain/core/firestore_failure.dart';
 import 'package:mess_management_app/domain/mess_registration/i_mess_registration_repository_facade.dart';
 
+import '../../../domain/menu/menu_model.dart';
+
 part 'mess_registration_event.dart';
 part 'mess_registration_state.dart';
 part 'mess_registration_bloc.freezed.dart';
@@ -21,8 +23,12 @@ class MessRegistrationBloc
           state.copyWith(isFetching: true),
         );
         final Either<FirestoreFailure, Unit> failureOrSuccess =
-            await _iMessRegistrationRepositoryFacade
-                .applyFormMessRegistration(event.messName,event.userId);
+            await _iMessRegistrationRepositoryFacade.applyFormMessRegistration(
+                event.messName,
+                event.userId,
+                event.oldMess,
+                event.messCharge,
+                event.menu);
 
         failureOrSuccess.fold(
           (l) => emit(

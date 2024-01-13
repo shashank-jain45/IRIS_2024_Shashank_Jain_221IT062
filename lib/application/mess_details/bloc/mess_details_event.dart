@@ -5,4 +5,5 @@ class MessDetailsEvent with _$MessDetailsEvent {
   const factory MessDetailsEvent.fetchMessList(List<Mess> messList) =
       FetchMessList;
   const factory MessDetailsEvent.addMess(Mess mess) = AddMess;
+  const factory MessDetailsEvent.deleteMess(String messName) = DeleteMess;
 }

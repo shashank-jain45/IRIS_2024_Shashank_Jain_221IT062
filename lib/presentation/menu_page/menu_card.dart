@@ -6,11 +6,24 @@ import 'package:mess_management_app/domain/menu/menu_model.dart';
 class MenuCard extends StatelessWidget {
   const MenuCard({
     Key? key,
-    required this.dayMenu,
     required this.dayIndex,
+    required this.menu,
   }) : super(key: key);
-  final DayMenu? dayMenu;
   final int dayIndex;
+  final Menu menu;
+  static const List<String> mealName = [
+    "Breakfast",
+    "Lunch",
+    "Snacks",
+    "Dinner"
+  ];
+  static const List<String> mealTimming = [
+    "08:00  - 09:30 ",
+    "12:00  - 14:00 ",
+    "16:30  - 18:00 ",
+    "19:30  - 21:30 "
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,9 +42,15 @@ class MenuCard extends StatelessWidget {
           child: ListView.builder(
             itemCount: 4,
             itemBuilder: (context, index) => MealSubCard(
-              itemNames: dayMenu!.items[index],
-              timings: dayMenu!.time[index],
-              mealName: dayMenu!.mealName[index],
+              itemNames: index == 0
+                  ? menu.breakfast
+                  : index == 1
+                      ? menu.lunch
+                      : index == 2
+                          ? menu.snacks
+                          : menu.dinner,
+              timings: mealTimming[index],
+              mealName: mealName[index],
             ),
           ),
         ),

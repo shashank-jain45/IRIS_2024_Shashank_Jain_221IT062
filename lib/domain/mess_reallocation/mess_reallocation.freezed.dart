@@ -25,6 +25,8 @@ mixin _$MessReallocationModel {
   bool? get isApproved => throw _privateConstructorUsedError;
   String get requestedMess => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
+  double get messCharge => throw _privateConstructorUsedError;
+  Menu get menu => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +41,14 @@ abstract class $MessReallocationModelCopyWith<$Res> {
       _$MessReallocationModelCopyWithImpl<$Res, MessReallocationModel>;
   @useResult
   $Res call(
-      {bool? isPending, bool? isApproved, String requestedMess, DateTime date});
+      {bool? isPending,
+      bool? isApproved,
+      String requestedMess,
+      DateTime date,
+      double messCharge,
+      Menu menu});
+
+  $MenuCopyWith<$Res> get menu;
 }
 
 /// @nodoc
@@ -60,6 +69,8 @@ class _$MessReallocationModelCopyWithImpl<$Res,
     Object? isApproved = freezed,
     Object? requestedMess = null,
     Object? date = null,
+    Object? messCharge = null,
+    Object? menu = null,
   }) {
     return _then(_value.copyWith(
       isPending: freezed == isPending
@@ -78,7 +89,23 @@ class _$MessReallocationModelCopyWithImpl<$Res,
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menu: null == menu
+          ? _value.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as Menu,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuCopyWith<$Res> get menu {
+    return $MenuCopyWith<$Res>(_value.menu, (value) {
+      return _then(_value.copyWith(menu: value) as $Val);
+    });
   }
 }
 
@@ -92,7 +119,15 @@ abstract class _$$MessReallocationModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? isPending, bool? isApproved, String requestedMess, DateTime date});
+      {bool? isPending,
+      bool? isApproved,
+      String requestedMess,
+      DateTime date,
+      double messCharge,
+      Menu menu});
+
+  @override
+  $MenuCopyWith<$Res> get menu;
 }
 
 /// @nodoc
@@ -111,6 +146,8 @@ class __$$MessReallocationModelImplCopyWithImpl<$Res>
     Object? isApproved = freezed,
     Object? requestedMess = null,
     Object? date = null,
+    Object? messCharge = null,
+    Object? menu = null,
   }) {
     return _then(_$MessReallocationModelImpl(
       isPending: freezed == isPending
@@ -129,18 +166,29 @@ class __$$MessReallocationModelImplCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menu: null == menu
+          ? _value.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as Menu,
     ));
   }
 }
 
 /// @nodoc
+
 @JsonSerializable()
 class _$MessReallocationModelImpl implements _MessReallocationModel {
   const _$MessReallocationModelImpl(
       {this.isPending = true,
       this.isApproved = false,
       required this.requestedMess,
-      required this.date});
+      required this.date,
+      required this.messCharge,
+      required this.menu});
 
   factory _$MessReallocationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessReallocationModelImplFromJson(json);
@@ -155,10 +203,14 @@ class _$MessReallocationModelImpl implements _MessReallocationModel {
   final String requestedMess;
   @override
   final DateTime date;
+  @override
+  final double messCharge;
+  @override
+  final Menu menu;
 
   @override
   String toString() {
-    return 'MessReallocationModel(isPending: $isPending, isApproved: $isApproved, requestedMess: $requestedMess, date: $date)';
+    return 'MessReallocationModel(isPending: $isPending, isApproved: $isApproved, requestedMess: $requestedMess, date: $date, messCharge: $messCharge, menu: $menu)';
   }
 
   @override
@@ -172,13 +224,16 @@ class _$MessReallocationModelImpl implements _MessReallocationModel {
                 other.isApproved == isApproved) &&
             (identical(other.requestedMess, requestedMess) ||
                 other.requestedMess == requestedMess) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.messCharge, messCharge) ||
+                other.messCharge == messCharge) &&
+            (identical(other.menu, menu) || other.menu == menu));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isPending, isApproved, requestedMess, date);
+  int get hashCode => Object.hash(runtimeType, isPending, isApproved,
+      requestedMess, date, messCharge, menu);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +255,9 @@ abstract class _MessReallocationModel implements MessReallocationModel {
       {final bool? isPending,
       final bool? isApproved,
       required final String requestedMess,
-      required final DateTime date}) = _$MessReallocationModelImpl;
+      required final DateTime date,
+      required final double messCharge,
+      required final Menu menu}) = _$MessReallocationModelImpl;
 
   factory _MessReallocationModel.fromJson(Map<String, dynamic> json) =
       _$MessReallocationModelImpl.fromJson;
@@ -213,6 +270,10 @@ abstract class _MessReallocationModel implements MessReallocationModel {
   String get requestedMess;
   @override
   DateTime get date;
+  @override
+  double get messCharge;
+  @override
+  Menu get menu;
   @override
   @JsonKey(ignore: true)
   _$$MessReallocationModelImplCopyWith<_$MessReallocationModelImpl>

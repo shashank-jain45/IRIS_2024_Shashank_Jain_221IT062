@@ -7,4 +7,5 @@ abstract class FirestoreFailure with _$FirestoreFailure {
   const factory FirestoreFailure.notFound() = NotFound;
   const factory FirestoreFailure.permissionDenied() = PermissionDenied;
   const factory FirestoreFailure.unathenticated() = Unauthenticated;
+  const factory FirestoreFailure.noInternnet() = NoInternnet;
 }

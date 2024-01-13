@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:mess_management_app/domain/core/firestore_failure.dart';
 import 'package:mess_management_app/domain/dashboard/i_user_data_facade.dart';
 import '../../../../domain/dashboard/user_data_model.dart';
+import '../../../../domain/menu/menu_model.dart';
 part 'mess_reallocation_request_event.dart';
 part 'mess_reallocation_request_state.dart';
 part 'mess_reallocation_request_bloc.freezed.dart';
@@ -38,8 +39,9 @@ class MessReallocationRequestBloc
       );
     });
     on<UpdateStatus>((event, emit) async {
-      Either<FirestoreFailure, Unit> failureOrSuccess = await _firestoreUserData
-          .applyReallocationStatus(event.isApproved, event.user);
+      Either<FirestoreFailure, Unit> failureOrSuccess =
+          await _firestoreUserData.applyReallocationStatus(
+              event.isApproved, event.user);
       failureOrSuccess.fold(
           (l) => emit(
                 state.copyWith(

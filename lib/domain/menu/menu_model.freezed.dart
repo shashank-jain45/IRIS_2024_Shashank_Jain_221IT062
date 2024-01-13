@@ -20,7 +20,10 @@ Menu _$MenuFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Menu {
-  Map<String, dynamic> get menu => throw _privateConstructorUsedError;
+  String get breakfast => throw _privateConstructorUsedError;
+  String get lunch => throw _privateConstructorUsedError;
+  String get snacks => throw _privateConstructorUsedError;
+  String get dinner => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -32,7 +35,7 @@ abstract class $MenuCopyWith<$Res> {
   factory $MenuCopyWith(Menu value, $Res Function(Menu) then) =
       _$MenuCopyWithImpl<$Res, Menu>;
   @useResult
-  $Res call({Map<String, dynamic> menu});
+  $Res call({String breakfast, String lunch, String snacks, String dinner});
 }
 
 /// @nodoc
@@ -48,13 +51,28 @@ class _$MenuCopyWithImpl<$Res, $Val extends Menu>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? menu = null,
+    Object? breakfast = null,
+    Object? lunch = null,
+    Object? snacks = null,
+    Object? dinner = null,
   }) {
     return _then(_value.copyWith(
-      menu: null == menu
-          ? _value.menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+      breakfast: null == breakfast
+          ? _value.breakfast
+          : breakfast // ignore: cast_nullable_to_non_nullable
+              as String,
+      lunch: null == lunch
+          ? _value.lunch
+          : lunch // ignore: cast_nullable_to_non_nullable
+              as String,
+      snacks: null == snacks
+          ? _value.snacks
+          : snacks // ignore: cast_nullable_to_non_nullable
+              as String,
+      dinner: null == dinner
+          ? _value.dinner
+          : dinner // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -66,7 +84,7 @@ abstract class _$$MenuImplCopyWith<$Res> implements $MenuCopyWith<$Res> {
       __$$MenuImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, dynamic> menu});
+  $Res call({String breakfast, String lunch, String snacks, String dinner});
 }
 
 /// @nodoc
@@ -79,13 +97,28 @@ class __$$MenuImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? menu = null,
+    Object? breakfast = null,
+    Object? lunch = null,
+    Object? snacks = null,
+    Object? dinner = null,
   }) {
     return _then(_$MenuImpl(
-      menu: null == menu
-          ? _value._menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+      breakfast: null == breakfast
+          ? _value.breakfast
+          : breakfast // ignore: cast_nullable_to_non_nullable
+              as String,
+      lunch: null == lunch
+          ? _value.lunch
+          : lunch // ignore: cast_nullable_to_non_nullable
+              as String,
+      snacks: null == snacks
+          ? _value.snacks
+          : snacks // ignore: cast_nullable_to_non_nullable
+              as String,
+      dinner: null == dinner
+          ? _value.dinner
+          : dinner // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -93,22 +126,27 @@ class __$$MenuImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MenuImpl implements _Menu {
-  const _$MenuImpl({required final Map<String, dynamic> menu}) : _menu = menu;
+  const _$MenuImpl(
+      {required this.breakfast,
+      required this.lunch,
+      required this.snacks,
+      required this.dinner});
 
   factory _$MenuImpl.fromJson(Map<String, dynamic> json) =>
       _$$MenuImplFromJson(json);
 
-  final Map<String, dynamic> _menu;
   @override
-  Map<String, dynamic> get menu {
-    if (_menu is EqualUnmodifiableMapView) return _menu;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_menu);
-  }
+  final String breakfast;
+  @override
+  final String lunch;
+  @override
+  final String snacks;
+  @override
+  final String dinner;
 
   @override
   String toString() {
-    return 'Menu(menu: $menu)';
+    return 'Menu(breakfast: $breakfast, lunch: $lunch, snacks: $snacks, dinner: $dinner)';
   }
 
   @override
@@ -116,13 +154,17 @@ class _$MenuImpl implements _Menu {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MenuImpl &&
-            const DeepCollectionEquality().equals(other._menu, _menu));
+            (identical(other.breakfast, breakfast) ||
+                other.breakfast == breakfast) &&
+            (identical(other.lunch, lunch) || other.lunch == lunch) &&
+            (identical(other.snacks, snacks) || other.snacks == snacks) &&
+            (identical(other.dinner, dinner) || other.dinner == dinner));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_menu));
+      Object.hash(runtimeType, breakfast, lunch, snacks, dinner);
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +181,22 @@ class _$MenuImpl implements _Menu {
 }
 
 abstract class _Menu implements Menu {
-  const factory _Menu({required final Map<String, dynamic> menu}) = _$MenuImpl;
+  const factory _Menu(
+      {required final String breakfast,
+      required final String lunch,
+      required final String snacks,
+      required final String dinner}) = _$MenuImpl;
 
   factory _Menu.fromJson(Map<String, dynamic> json) = _$MenuImpl.fromJson;
 
   @override
-  Map<String, dynamic> get menu;
+  String get breakfast;
+  @override
+  String get lunch;
+  @override
+  String get snacks;
+  @override
+  String get dinner;
   @override
   @JsonKey(ignore: true)
   _$$MenuImplCopyWith<_$MenuImpl> get copyWith =>

@@ -49,21 +49,21 @@ class MessReallocationRequestPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
-                                    userList[index].name,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
+                                  Expanded(
+                                    child: Text(
+                                      userList[index].name,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  const Icon(
-                                    Icons.currency_rupee_rounded,
-                                    size: 15,
-                                  ),
-                                  Text(userList[index].messBalance.toString()),
+                                  Expanded(
+                                      child: Text(
+                                          "₹ ${userList[index].messBalance}")),
                                 ],
                               ),
                               Text(userList[index].rollNumber,
@@ -76,16 +76,26 @@ class MessReallocationRequestPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Row(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text("${userList[index].messName}--->",
+                                  Expanded(
+                                    child: Text(
+                                      "${userList[index].messName}--->",
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 25)),
-                                  Text(
+                                          color: Colors.white, fontSize: 25),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
                                       userList[index]
                                           .messReallocationModel!
                                           .requestedMess,
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 25)),
+                                          color: Colors.white, fontSize: 20),
+                                      overflow: TextOverflow.fade,
+                                    ),
+                                  ),
                                 ],
                               ),
                               Text(

@@ -18,47 +18,45 @@ class MenuPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Mess Menu"),
         ),
-        body: menu == null
-            ? const AddMenuPage()
-            : Center(
-                child: CarouselSlider(
-                  items: [
-                    MenuCard(
-                      // dayMenu: dayMenuList?[0],
-                      dayMenu: menu.menu["monday"], dayIndex: 1,
-                    ),
-                    MenuCard(
-                      // dayMenu: dayMenuList?[1],
-                      dayMenu: menu.menu["tuesday"], dayIndex: 2,
-                    ),
-                    MenuCard(
-                      // dayMenu: dayMenuList?[2],
-                      dayMenu: menu.menu["wednesday"], dayIndex: 3,
-                    ),
-                    // MenuCard(
-                    //   // dayMenu: dayMenuList?[3],
-                    //   dayMenu: null,
-                    // ),
-                    // MenuCard(
-                    //   // dayMenu: dayMenuList?[4],
-                    //   dayMenu: null,
-                    // ),
-                    // MenuCard(
-                    //   // dayMenu: dayMenuList?[5],
-                    //   dayMenu: null,
-                    // ),
-                    // MenuCard(
-                    //   // dayMenu: dayMenuList?[6],
-                    //   dayMenu: null,
-                    // ),
-                  ],
-                  options: CarouselOptions(
-                    initialPage: DateTime.now().weekday,
-                    enlargeCenterPage: true,
-                    aspectRatio: 9 / 14,
-                  ),
-                ),
+        body: Center(
+          child: CarouselSlider(
+            items: [
+              MenuCard(
+                menu: menu,
+                dayIndex: 1,
               ),
+              MenuCard(
+                menu: menu,
+                dayIndex: 2,
+              ),
+              MenuCard(
+                menu: menu,
+                dayIndex: 3,
+              ),
+              MenuCard(
+                menu: menu,
+                dayIndex: 4,
+              ),
+              MenuCard(
+                menu: menu,
+                dayIndex: 5,
+              ),
+              MenuCard(
+                menu: menu,
+                dayIndex: 6,
+              ),
+              MenuCard(
+                menu: menu,
+                dayIndex: 7,
+              ),
+            ],
+            options: CarouselOptions(
+              initialPage: DateTime.now().weekday,
+              enlargeCenterPage: true,
+              aspectRatio: 9 / 14,
+            ),
+          ),
+        ),
       ),
     );
   }

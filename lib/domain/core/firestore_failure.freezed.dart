@@ -22,6 +22,7 @@ mixin _$FirestoreFailure {
     required TResult Function() notFound,
     required TResult Function() permissionDenied,
     required TResult Function() unathenticated,
+    required TResult Function() noInternnet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$FirestoreFailure {
     TResult? Function()? notFound,
     TResult? Function()? permissionDenied,
     TResult? Function()? unathenticated,
+    TResult? Function()? noInternnet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$FirestoreFailure {
     TResult Function()? notFound,
     TResult Function()? permissionDenied,
     TResult Function()? unathenticated,
+    TResult Function()? noInternnet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$FirestoreFailure {
     required TResult Function(NotFound value) notFound,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Unauthenticated value) unathenticated,
+    required TResult Function(NoInternnet value) noInternnet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$FirestoreFailure {
     TResult? Function(NotFound value)? notFound,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Unauthenticated value)? unathenticated,
+    TResult? Function(NoInternnet value)? noInternnet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$FirestoreFailure {
     TResult Function(NotFound value)? notFound,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Unauthenticated value)? unathenticated,
+    TResult Function(NoInternnet value)? noInternnet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$CancelledImpl implements Cancelled {
     required TResult Function() notFound,
     required TResult Function() permissionDenied,
     required TResult Function() unathenticated,
+    required TResult Function() noInternnet,
   }) {
     return cacelled();
   }
@@ -139,6 +146,7 @@ class _$CancelledImpl implements Cancelled {
     TResult? Function()? notFound,
     TResult? Function()? permissionDenied,
     TResult? Function()? unathenticated,
+    TResult? Function()? noInternnet,
   }) {
     return cacelled?.call();
   }
@@ -150,6 +158,7 @@ class _$CancelledImpl implements Cancelled {
     TResult Function()? notFound,
     TResult Function()? permissionDenied,
     TResult Function()? unathenticated,
+    TResult Function()? noInternnet,
     required TResult orElse(),
   }) {
     if (cacelled != null) {
@@ -165,6 +174,7 @@ class _$CancelledImpl implements Cancelled {
     required TResult Function(NotFound value) notFound,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Unauthenticated value) unathenticated,
+    required TResult Function(NoInternnet value) noInternnet,
   }) {
     return cacelled(this);
   }
@@ -176,6 +186,7 @@ class _$CancelledImpl implements Cancelled {
     TResult? Function(NotFound value)? notFound,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Unauthenticated value)? unathenticated,
+    TResult? Function(NoInternnet value)? noInternnet,
   }) {
     return cacelled?.call(this);
   }
@@ -187,6 +198,7 @@ class _$CancelledImpl implements Cancelled {
     TResult Function(NotFound value)? notFound,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Unauthenticated value)? unathenticated,
+    TResult Function(NoInternnet value)? noInternnet,
     required TResult orElse(),
   }) {
     if (cacelled != null) {
@@ -242,6 +254,7 @@ class _$NotFoundImpl implements NotFound {
     required TResult Function() notFound,
     required TResult Function() permissionDenied,
     required TResult Function() unathenticated,
+    required TResult Function() noInternnet,
   }) {
     return notFound();
   }
@@ -253,6 +266,7 @@ class _$NotFoundImpl implements NotFound {
     TResult? Function()? notFound,
     TResult? Function()? permissionDenied,
     TResult? Function()? unathenticated,
+    TResult? Function()? noInternnet,
   }) {
     return notFound?.call();
   }
@@ -264,6 +278,7 @@ class _$NotFoundImpl implements NotFound {
     TResult Function()? notFound,
     TResult Function()? permissionDenied,
     TResult Function()? unathenticated,
+    TResult Function()? noInternnet,
     required TResult orElse(),
   }) {
     if (notFound != null) {
@@ -279,6 +294,7 @@ class _$NotFoundImpl implements NotFound {
     required TResult Function(NotFound value) notFound,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Unauthenticated value) unathenticated,
+    required TResult Function(NoInternnet value) noInternnet,
   }) {
     return notFound(this);
   }
@@ -290,6 +306,7 @@ class _$NotFoundImpl implements NotFound {
     TResult? Function(NotFound value)? notFound,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Unauthenticated value)? unathenticated,
+    TResult? Function(NoInternnet value)? noInternnet,
   }) {
     return notFound?.call(this);
   }
@@ -301,6 +318,7 @@ class _$NotFoundImpl implements NotFound {
     TResult Function(NotFound value)? notFound,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Unauthenticated value)? unathenticated,
+    TResult Function(NoInternnet value)? noInternnet,
     required TResult orElse(),
   }) {
     if (notFound != null) {
@@ -356,6 +374,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     required TResult Function() notFound,
     required TResult Function() permissionDenied,
     required TResult Function() unathenticated,
+    required TResult Function() noInternnet,
   }) {
     return permissionDenied();
   }
@@ -367,6 +386,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult? Function()? notFound,
     TResult? Function()? permissionDenied,
     TResult? Function()? unathenticated,
+    TResult? Function()? noInternnet,
   }) {
     return permissionDenied?.call();
   }
@@ -378,6 +398,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult Function()? notFound,
     TResult Function()? permissionDenied,
     TResult Function()? unathenticated,
+    TResult Function()? noInternnet,
     required TResult orElse(),
   }) {
     if (permissionDenied != null) {
@@ -393,6 +414,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     required TResult Function(NotFound value) notFound,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Unauthenticated value) unathenticated,
+    required TResult Function(NoInternnet value) noInternnet,
   }) {
     return permissionDenied(this);
   }
@@ -404,6 +426,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult? Function(NotFound value)? notFound,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Unauthenticated value)? unathenticated,
+    TResult? Function(NoInternnet value)? noInternnet,
   }) {
     return permissionDenied?.call(this);
   }
@@ -415,6 +438,7 @@ class _$PermissionDeniedImpl implements PermissionDenied {
     TResult Function(NotFound value)? notFound,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Unauthenticated value)? unathenticated,
+    TResult Function(NoInternnet value)? noInternnet,
     required TResult orElse(),
   }) {
     if (permissionDenied != null) {
@@ -470,6 +494,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     required TResult Function() notFound,
     required TResult Function() permissionDenied,
     required TResult Function() unathenticated,
+    required TResult Function() noInternnet,
   }) {
     return unathenticated();
   }
@@ -481,6 +506,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult? Function()? notFound,
     TResult? Function()? permissionDenied,
     TResult? Function()? unathenticated,
+    TResult? Function()? noInternnet,
   }) {
     return unathenticated?.call();
   }
@@ -492,6 +518,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult Function()? notFound,
     TResult Function()? permissionDenied,
     TResult Function()? unathenticated,
+    TResult Function()? noInternnet,
     required TResult orElse(),
   }) {
     if (unathenticated != null) {
@@ -507,6 +534,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     required TResult Function(NotFound value) notFound,
     required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Unauthenticated value) unathenticated,
+    required TResult Function(NoInternnet value) noInternnet,
   }) {
     return unathenticated(this);
   }
@@ -518,6 +546,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult? Function(NotFound value)? notFound,
     TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Unauthenticated value)? unathenticated,
+    TResult? Function(NoInternnet value)? noInternnet,
   }) {
     return unathenticated?.call(this);
   }
@@ -529,6 +558,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult Function(NotFound value)? notFound,
     TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Unauthenticated value)? unathenticated,
+    TResult Function(NoInternnet value)? noInternnet,
     required TResult orElse(),
   }) {
     if (unathenticated != null) {
@@ -540,4 +570,124 @@ class _$UnauthenticatedImpl implements Unauthenticated {
 
 abstract class Unauthenticated implements FirestoreFailure {
   const factory Unauthenticated() = _$UnauthenticatedImpl;
+}
+
+/// @nodoc
+abstract class _$$NoInternnetImplCopyWith<$Res> {
+  factory _$$NoInternnetImplCopyWith(
+          _$NoInternnetImpl value, $Res Function(_$NoInternnetImpl) then) =
+      __$$NoInternnetImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoInternnetImplCopyWithImpl<$Res>
+    extends _$FirestoreFailureCopyWithImpl<$Res, _$NoInternnetImpl>
+    implements _$$NoInternnetImplCopyWith<$Res> {
+  __$$NoInternnetImplCopyWithImpl(
+      _$NoInternnetImpl _value, $Res Function(_$NoInternnetImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoInternnetImpl implements NoInternnet {
+  const _$NoInternnetImpl();
+
+  @override
+  String toString() {
+    return 'FirestoreFailure.noInternnet()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoInternnetImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cacelled,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
+    required TResult Function() unathenticated,
+    required TResult Function() noInternnet,
+  }) {
+    return noInternnet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cacelled,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? unathenticated,
+    TResult? Function()? noInternnet,
+  }) {
+    return noInternnet?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cacelled,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
+    TResult Function()? unathenticated,
+    TResult Function()? noInternnet,
+    required TResult orElse(),
+  }) {
+    if (noInternnet != null) {
+      return noInternnet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Cancelled value) cacelled,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
+    required TResult Function(Unauthenticated value) unathenticated,
+    required TResult Function(NoInternnet value) noInternnet,
+  }) {
+    return noInternnet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Cancelled value)? cacelled,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
+    TResult? Function(Unauthenticated value)? unathenticated,
+    TResult? Function(NoInternnet value)? noInternnet,
+  }) {
+    return noInternnet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Cancelled value)? cacelled,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
+    TResult Function(Unauthenticated value)? unathenticated,
+    TResult Function(NoInternnet value)? noInternnet,
+    required TResult orElse(),
+  }) {
+    if (noInternnet != null) {
+      return noInternnet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoInternnet implements FirestoreFailure {
+  const factory NoInternnet() = _$NoInternnetImpl;
 }

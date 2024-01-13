@@ -9,6 +9,8 @@ import '../../domain/dashboard/user_data_model.dart';
 import 'package:mess_management_app/domain/mess_balance/transaction_model.dart'
     as model;
 
+import '../../domain/menu/menu_model.dart';
+
 @LazySingleton(as: IUserDataFacade)
 class FirestoreUserData implements IUserDataFacade {
   final FirebaseAuth _firebase;
@@ -110,8 +112,7 @@ class FirestoreUserData implements IUserDataFacade {
         );
 
         user = user.copyWith(
-          messName: model.requestedMess,
-        );
+            messName: model.requestedMess, messCharge: model.messCharge, menu: model.menu);
       }
       UserClass usersData = user.copyWith(messReallocationModel: model);
       await _firestore.collection("users").doc(userId).set(

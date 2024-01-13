@@ -34,9 +34,11 @@ class AdminPage extends StatelessWidget {
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 children: [
-                  const CircleAvatar(radius: 70),
+                  const CircleAvatar(
+                    radius: 70,
+                    backgroundImage: AssetImage("assets/images.png"),
+                  ),
                   const SizedBox(
                     height: 15,
                   ),
@@ -61,12 +63,27 @@ class AdminPage extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    leading: const Icon(Icons.person),
                     title: const Text("Roll Number"),
                     trailing: Text(user.rollNumber),
+                    shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.blueGrey),
+                      borderRadius: BorderRadiusDirectional.vertical(
+                          top: Radius.circular(12), bottom: Radius.circular(5)),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   ListTile(
+                    leading: const Icon(Icons.email),
                     title: const Text("Email"),
                     trailing: Text(user.email),
+                    shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.blueGrey),
+                      borderRadius: BorderRadiusDirectional.vertical(
+                          top: Radius.circular(5), bottom: Radius.circular(12)),
+                    ),
                   ),
                   const Align(
                     alignment: Alignment.topLeft,
@@ -78,6 +95,7 @@ class AdminPage extends StatelessWidget {
                   ),
 
                   ListTile(
+                    leading: const Icon(Icons.restart_alt_sharp),
                     onTap: () {
                       Navigator.of(context)
                           .push(
@@ -94,8 +112,17 @@ class AdminPage extends StatelessWidget {
                     },
                     title: const Text("Mess Reallocation Requests"),
                     trailing: const Icon(Icons.arrow_forward_ios),
+                    shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.blueGrey),
+                      borderRadius: BorderRadiusDirectional.vertical(
+                          top: Radius.circular(12), bottom: Radius.circular(5)),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   ListTile(
+                    leading: const Icon(Icons.restaurant),
                     onTap: () {
                       Navigator.of(context)
                           .push(
@@ -111,6 +138,11 @@ class AdminPage extends StatelessWidget {
                     },
                     title: const Text("Mess Info"),
                     trailing: const Icon(Icons.arrow_forward_ios),
+                    shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.blueGrey),
+                      borderRadius: BorderRadiusDirectional.vertical(
+                          top: Radius.circular(5), bottom: Radius.circular(12)),
+                    ),
                   ),
 
                   Align(

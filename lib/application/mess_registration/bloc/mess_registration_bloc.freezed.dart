@@ -18,19 +18,28 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MessRegistrationEvent {
   String get messName => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
+  String? get oldMess => throw _privateConstructorUsedError;
+  double get messCharge => throw _privateConstructorUsedError;
+  Menu get menu => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String messName, String? userId) apply,
+    required TResult Function(String messName, String? userId, String? oldMess,
+            double messCharge, Menu menu)
+        apply,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String messName, String? userId)? apply,
+    TResult? Function(String messName, String? userId, String? oldMess,
+            double messCharge, Menu menu)?
+        apply,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String messName, String? userId)? apply,
+    TResult Function(String messName, String? userId, String? oldMess,
+            double messCharge, Menu menu)?
+        apply,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,7 +71,14 @@ abstract class $MessRegistrationEventCopyWith<$Res> {
           $Res Function(MessRegistrationEvent) then) =
       _$MessRegistrationEventCopyWithImpl<$Res, MessRegistrationEvent>;
   @useResult
-  $Res call({String messName, String? userId});
+  $Res call(
+      {String messName,
+      String? userId,
+      String? oldMess,
+      double messCharge,
+      Menu menu});
+
+  $MenuCopyWith<$Res> get menu;
 }
 
 /// @nodoc
@@ -81,6 +97,9 @@ class _$MessRegistrationEventCopyWithImpl<$Res,
   $Res call({
     Object? messName = null,
     Object? userId = freezed,
+    Object? oldMess = freezed,
+    Object? messCharge = null,
+    Object? menu = null,
   }) {
     return _then(_value.copyWith(
       messName: null == messName
@@ -91,7 +110,27 @@ class _$MessRegistrationEventCopyWithImpl<$Res,
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      oldMess: freezed == oldMess
+          ? _value.oldMess
+          : oldMess // ignore: cast_nullable_to_non_nullable
+              as String?,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menu: null == menu
+          ? _value.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as Menu,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuCopyWith<$Res> get menu {
+    return $MenuCopyWith<$Res>(_value.menu, (value) {
+      return _then(_value.copyWith(menu: value) as $Val);
+    });
   }
 }
 
@@ -104,7 +143,15 @@ abstract class _$$MessRegistrationEventApplyImplCopyWith<$Res>
       __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String messName, String? userId});
+  $Res call(
+      {String messName,
+      String? userId,
+      String? oldMess,
+      double messCharge,
+      Menu menu});
+
+  @override
+  $MenuCopyWith<$Res> get menu;
 }
 
 /// @nodoc
@@ -122,6 +169,9 @@ class __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>
   $Res call({
     Object? messName = null,
     Object? userId = freezed,
+    Object? oldMess = freezed,
+    Object? messCharge = null,
+    Object? menu = null,
   }) {
     return _then(_$MessRegistrationEventApplyImpl(
       null == messName
@@ -132,6 +182,18 @@ class __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      freezed == oldMess
+          ? _value.oldMess
+          : oldMess // ignore: cast_nullable_to_non_nullable
+              as String?,
+      null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      null == menu
+          ? _value.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as Menu,
     ));
   }
 }
@@ -139,16 +201,23 @@ class __$$MessRegistrationEventApplyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
-  const _$MessRegistrationEventApplyImpl(this.messName, this.userId);
+  const _$MessRegistrationEventApplyImpl(
+      this.messName, this.userId, this.oldMess, this.messCharge, this.menu);
 
   @override
   final String messName;
   @override
   final String? userId;
+  @override
+  final String? oldMess;
+  @override
+  final double messCharge;
+  @override
+  final Menu menu;
 
   @override
   String toString() {
-    return 'MessRegistrationEvent.apply(messName: $messName, userId: $userId)';
+    return 'MessRegistrationEvent.apply(messName: $messName, userId: $userId, oldMess: $oldMess, messCharge: $messCharge, menu: $menu)';
   }
 
   @override
@@ -158,11 +227,16 @@ class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
             other is _$MessRegistrationEventApplyImpl &&
             (identical(other.messName, messName) ||
                 other.messName == messName) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.oldMess, oldMess) || other.oldMess == oldMess) &&
+            (identical(other.messCharge, messCharge) ||
+                other.messCharge == messCharge) &&
+            (identical(other.menu, menu) || other.menu == menu));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, messName, userId);
+  int get hashCode =>
+      Object.hash(runtimeType, messName, userId, oldMess, messCharge, menu);
 
   @JsonKey(ignore: true)
   @override
@@ -174,27 +248,33 @@ class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String messName, String? userId) apply,
+    required TResult Function(String messName, String? userId, String? oldMess,
+            double messCharge, Menu menu)
+        apply,
   }) {
-    return apply(messName, userId);
+    return apply(messName, userId, oldMess, messCharge, menu);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String messName, String? userId)? apply,
+    TResult? Function(String messName, String? userId, String? oldMess,
+            double messCharge, Menu menu)?
+        apply,
   }) {
-    return apply?.call(messName, userId);
+    return apply?.call(messName, userId, oldMess, messCharge, menu);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String messName, String? userId)? apply,
+    TResult Function(String messName, String? userId, String? oldMess,
+            double messCharge, Menu menu)?
+        apply,
     required TResult orElse(),
   }) {
     if (apply != null) {
-      return apply(messName, userId);
+      return apply(messName, userId, oldMess, messCharge, menu);
     }
     return orElse();
   }
@@ -230,13 +310,22 @@ class _$MessRegistrationEventApplyImpl implements MessRegistrationEventApply {
 
 abstract class MessRegistrationEventApply implements MessRegistrationEvent {
   const factory MessRegistrationEventApply(
-          final String messName, final String? userId) =
-      _$MessRegistrationEventApplyImpl;
+      final String messName,
+      final String? userId,
+      final String? oldMess,
+      final double messCharge,
+      final Menu menu) = _$MessRegistrationEventApplyImpl;
 
   @override
   String get messName;
   @override
   String? get userId;
+  @override
+  String? get oldMess;
+  @override
+  double get messCharge;
+  @override
+  Menu get menu;
   @override
   @JsonKey(ignore: true)
   _$$MessRegistrationEventApplyImplCopyWith<_$MessRegistrationEventApplyImpl>

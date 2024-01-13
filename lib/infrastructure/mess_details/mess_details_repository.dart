@@ -5,7 +5,7 @@ import 'package:mess_management_app/domain/core/firestore_failure.dart';
 import 'package:mess_management_app/domain/mess_details/i_mess_details_repository.dart';
 import '../../domain/mess_details/mess_model.dart';
 
-@Injectable(as: IMessDetailsRepositoryFacade)
+@LazySingleton(as: IMessDetailsRepositoryFacade)
 class MessDetailsRepositoryFacade implements IMessDetailsRepositoryFacade {
   final FirebaseFirestore _firestore;
   MessDetailsRepositoryFacade(
@@ -30,6 +30,16 @@ class MessDetailsRepositoryFacade implements IMessDetailsRepositoryFacade {
       await _firestore.collection("mess").doc(mess.messName).set(
             mess.toJson(),
           );
+      return right(unit);
+    } catch (e) {
+      return left(const FirestoreFailure.permissionDenied());
+    }
+  }
+
+  @override
+  Future<Either<FirestoreFailure, Unit>> deleteMess(String messName) async {
+    try {
+      await _firestore.collection("mess").doc(messName).delete();
       return right(unit);
     } catch (e) {
       return left(const FirestoreFailure.permissionDenied());

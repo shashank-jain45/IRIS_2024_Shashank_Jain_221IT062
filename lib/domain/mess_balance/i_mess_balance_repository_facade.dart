@@ -6,5 +6,5 @@ abstract class IMessBalanceRepositoryFacade {
   Future<Either<FirestoreFailure, Transaction>> addMessAmount(
       Transaction trans);
    Stream<List<Transaction>> transactionDetails();
-  Future<Either<FirestoreFailure, Unit>> deductMealAmount();
+  Future<Either<FirestoreFailure, Unit>> deductMealAmount(Transaction trans);
 }

@@ -7,12 +7,18 @@ part of 'menu_model.dart';
 // **************************************************************************
 
 _$MenuImpl _$$MenuImplFromJson(Map<String, dynamic> json) => _$MenuImpl(
-      menu: json['menu'] as Map<String, dynamic>,
+      breakfast: json['breakfast'] as String,
+      lunch: json['lunch'] as String,
+      snacks: json['snacks'] as String,
+      dinner: json['dinner'] as String,
     );
 
 Map<String, dynamic> _$$MenuImplToJson(_$MenuImpl instance) =>
     <String, dynamic>{
-      'menu': instance.menu,
+      'breakfast': instance.breakfast,
+      'lunch': instance.lunch,
+      'snacks': instance.snacks,
+      'dinner': instance.dinner,
     };
 
 _$DayMenuImpl _$$DayMenuImplFromJson(Map<String, dynamic> json) =>

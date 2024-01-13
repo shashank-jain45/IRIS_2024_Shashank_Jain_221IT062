@@ -8,7 +8,7 @@ import '../../domain/mess_balance/i_mess_balance_repository_facade.dart';
 import 'package:mess_management_app/domain/mess_balance/transaction_model.dart'
     as tra;
 
-@Injectable(as: IMessBalanceRepositoryFacade)
+@LazySingleton(as: IMessBalanceRepositoryFacade)
 class MessBalanceRepository implements IMessBalanceRepositoryFacade {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebase;
@@ -52,7 +52,7 @@ class MessBalanceRepository implements IMessBalanceRepositoryFacade {
   }
 
   @override
-  Future<Either<FirestoreFailure, Unit>> deductMealAmount() {
+  Future<Either<FirestoreFailure, Unit>> deductMealAmount(Tra) {
     throw UnimplementedError();
   }
 }

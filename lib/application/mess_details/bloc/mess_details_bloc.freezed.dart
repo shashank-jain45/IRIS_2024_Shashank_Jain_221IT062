@@ -20,18 +20,21 @@ mixin _$MessDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(List<Mess> messList) fetchMessList,
     required TResult Function(Mess mess) addMess,
+    required TResult Function(String messName) deleteMess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<Mess> messList)? fetchMessList,
     TResult? Function(Mess mess)? addMess,
+    TResult? Function(String messName)? deleteMess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Mess> messList)? fetchMessList,
     TResult Function(Mess mess)? addMess,
+    TResult Function(String messName)? deleteMess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$MessDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchMessList value) fetchMessList,
     required TResult Function(AddMess value) addMess,
+    required TResult Function(DeleteMess value) deleteMess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchMessList value)? fetchMessList,
     TResult? Function(AddMess value)? addMess,
+    TResult? Function(DeleteMess value)? deleteMess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchMessList value)? fetchMessList,
     TResult Function(AddMess value)? addMess,
+    TResult Function(DeleteMess value)? deleteMess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,6 +152,7 @@ class _$FetchMessListImpl implements FetchMessList {
   TResult when<TResult extends Object?>({
     required TResult Function(List<Mess> messList) fetchMessList,
     required TResult Function(Mess mess) addMess,
+    required TResult Function(String messName) deleteMess,
   }) {
     return fetchMessList(messList);
   }
@@ -155,6 +162,7 @@ class _$FetchMessListImpl implements FetchMessList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<Mess> messList)? fetchMessList,
     TResult? Function(Mess mess)? addMess,
+    TResult? Function(String messName)? deleteMess,
   }) {
     return fetchMessList?.call(messList);
   }
@@ -164,6 +172,7 @@ class _$FetchMessListImpl implements FetchMessList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Mess> messList)? fetchMessList,
     TResult Function(Mess mess)? addMess,
+    TResult Function(String messName)? deleteMess,
     required TResult orElse(),
   }) {
     if (fetchMessList != null) {
@@ -177,6 +186,7 @@ class _$FetchMessListImpl implements FetchMessList {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchMessList value) fetchMessList,
     required TResult Function(AddMess value) addMess,
+    required TResult Function(DeleteMess value) deleteMess,
   }) {
     return fetchMessList(this);
   }
@@ -186,6 +196,7 @@ class _$FetchMessListImpl implements FetchMessList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchMessList value)? fetchMessList,
     TResult? Function(AddMess value)? addMess,
+    TResult? Function(DeleteMess value)? deleteMess,
   }) {
     return fetchMessList?.call(this);
   }
@@ -195,6 +206,7 @@ class _$FetchMessListImpl implements FetchMessList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchMessList value)? fetchMessList,
     TResult Function(AddMess value)? addMess,
+    TResult Function(DeleteMess value)? deleteMess,
     required TResult orElse(),
   }) {
     if (fetchMessList != null) {
@@ -289,6 +301,7 @@ class _$AddMessImpl implements AddMess {
   TResult when<TResult extends Object?>({
     required TResult Function(List<Mess> messList) fetchMessList,
     required TResult Function(Mess mess) addMess,
+    required TResult Function(String messName) deleteMess,
   }) {
     return addMess(mess);
   }
@@ -298,6 +311,7 @@ class _$AddMessImpl implements AddMess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<Mess> messList)? fetchMessList,
     TResult? Function(Mess mess)? addMess,
+    TResult? Function(String messName)? deleteMess,
   }) {
     return addMess?.call(mess);
   }
@@ -307,6 +321,7 @@ class _$AddMessImpl implements AddMess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Mess> messList)? fetchMessList,
     TResult Function(Mess mess)? addMess,
+    TResult Function(String messName)? deleteMess,
     required TResult orElse(),
   }) {
     if (addMess != null) {
@@ -320,6 +335,7 @@ class _$AddMessImpl implements AddMess {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchMessList value) fetchMessList,
     required TResult Function(AddMess value) addMess,
+    required TResult Function(DeleteMess value) deleteMess,
   }) {
     return addMess(this);
   }
@@ -329,6 +345,7 @@ class _$AddMessImpl implements AddMess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchMessList value)? fetchMessList,
     TResult? Function(AddMess value)? addMess,
+    TResult? Function(DeleteMess value)? deleteMess,
   }) {
     return addMess?.call(this);
   }
@@ -338,6 +355,7 @@ class _$AddMessImpl implements AddMess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchMessList value)? fetchMessList,
     TResult Function(AddMess value)? addMess,
+    TResult Function(DeleteMess value)? deleteMess,
     required TResult orElse(),
   }) {
     if (addMess != null) {
@@ -353,6 +371,146 @@ abstract class AddMess implements MessDetailsEvent {
   Mess get mess;
   @JsonKey(ignore: true)
   _$$AddMessImplCopyWith<_$AddMessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteMessImplCopyWith<$Res> {
+  factory _$$DeleteMessImplCopyWith(
+          _$DeleteMessImpl value, $Res Function(_$DeleteMessImpl) then) =
+      __$$DeleteMessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String messName});
+}
+
+/// @nodoc
+class __$$DeleteMessImplCopyWithImpl<$Res>
+    extends _$MessDetailsEventCopyWithImpl<$Res, _$DeleteMessImpl>
+    implements _$$DeleteMessImplCopyWith<$Res> {
+  __$$DeleteMessImplCopyWithImpl(
+      _$DeleteMessImpl _value, $Res Function(_$DeleteMessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? messName = null,
+  }) {
+    return _then(_$DeleteMessImpl(
+      null == messName
+          ? _value.messName
+          : messName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteMessImpl implements DeleteMess {
+  const _$DeleteMessImpl(this.messName);
+
+  @override
+  final String messName;
+
+  @override
+  String toString() {
+    return 'MessDetailsEvent.deleteMess(messName: $messName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteMessImpl &&
+            (identical(other.messName, messName) ||
+                other.messName == messName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, messName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteMessImplCopyWith<_$DeleteMessImpl> get copyWith =>
+      __$$DeleteMessImplCopyWithImpl<_$DeleteMessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Mess> messList) fetchMessList,
+    required TResult Function(Mess mess) addMess,
+    required TResult Function(String messName) deleteMess,
+  }) {
+    return deleteMess(messName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Mess> messList)? fetchMessList,
+    TResult? Function(Mess mess)? addMess,
+    TResult? Function(String messName)? deleteMess,
+  }) {
+    return deleteMess?.call(messName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Mess> messList)? fetchMessList,
+    TResult Function(Mess mess)? addMess,
+    TResult Function(String messName)? deleteMess,
+    required TResult orElse(),
+  }) {
+    if (deleteMess != null) {
+      return deleteMess(messName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchMessList value) fetchMessList,
+    required TResult Function(AddMess value) addMess,
+    required TResult Function(DeleteMess value) deleteMess,
+  }) {
+    return deleteMess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchMessList value)? fetchMessList,
+    TResult? Function(AddMess value)? addMess,
+    TResult? Function(DeleteMess value)? deleteMess,
+  }) {
+    return deleteMess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchMessList value)? fetchMessList,
+    TResult Function(AddMess value)? addMess,
+    TResult Function(DeleteMess value)? deleteMess,
+    required TResult orElse(),
+  }) {
+    if (deleteMess != null) {
+      return deleteMess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteMess implements MessDetailsEvent {
+  const factory DeleteMess(final String messName) = _$DeleteMessImpl;
+
+  String get messName;
+  @JsonKey(ignore: true)
+  _$$DeleteMessImplCopyWith<_$DeleteMessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

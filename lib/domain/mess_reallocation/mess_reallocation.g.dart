@@ -13,6 +13,8 @@ _$MessReallocationModelImpl _$$MessReallocationModelImplFromJson(
       isApproved: json['isApproved'] as bool? ?? false,
       requestedMess: json['requestedMess'] as String,
       date: DateTime.parse(json['date'] as String),
+      messCharge: (json['messCharge'] as num).toDouble(),
+      menu: Menu.fromJson(json['menu'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$MessReallocationModelImplToJson(
@@ -22,4 +24,6 @@ Map<String, dynamic> _$$MessReallocationModelImplToJson(
       'isApproved': instance.isApproved,
       'requestedMess': instance.requestedMess,
       'date': instance.date.toIso8601String(),
+      'messCharge': instance.messCharge,
+      'menu': instance.menu.toJson(),
     };

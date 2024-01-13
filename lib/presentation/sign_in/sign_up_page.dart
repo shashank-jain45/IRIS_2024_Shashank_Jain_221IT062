@@ -40,90 +40,104 @@ class SignUpForm extends StatelessWidget {
           ),
         );
       },
-      child: Scaffold(
-        appBar: AppBar(title: const Text("Sign Up")),
-        body: Form(
-          key: _formKey,
-          autovalidateMode: AutovalidateMode.always,
-          child: Column(
-            children: [
-              const Text("Email"),
-              TextFormField(
-                controller: emailController,
-                validator: (value) => RegExp(regExp).hasMatch(value ?? "")
-                    ? null
-                    : "Invalid Email",
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey[400]!),
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey[400]!),
-                  ),
-                ),
-              ),
-              const Text("Password"),
-              TextFormField(
-                controller: passwordController,
-                obscureText: true,
-                validator: (value) => value!.length < 6 ? "Too Short" : null,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey[400]!),
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey[400]!),
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    context.read<SignInBloc>().add(
-                          SignInEvent.registerWithEmailAndPasword(
-                              emailController.text, passwordController.text),
-                        );
-                  }
-                },
-                child: const Text("Sign Up"),
-              ),
-              BlocBuilder<SignInBloc, SignInState>(
-                builder: (context, state) {
-                  return state.isSubmitting
-                      ? const LinearProgressIndicator()
-                      : const SizedBox();
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text("Already have an account?"),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => SignInForm(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      "Log In",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(title: const Text("Sign Up")),
+          body: Padding(
+            padding: const EdgeInsets.all(25),
+            child: Form(
+              key: _formKey,
+              autovalidateMode: AutovalidateMode.always,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextFormField(
+                    controller: emailController,
+                    validator: (value) => RegExp(regExp).hasMatch(value ?? "")
+                        ? null
+                        : "Invalid Email",
+                    decoration: InputDecoration(
+                      label: const Text("Email"),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 10),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[400]!),
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[400]!),
                       ),
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: passwordController,
+                    obscureText: true,
+                    validator: (value) =>
+                        value!.length < 6 ? "Too Short" : null,
+                    decoration: InputDecoration(
+                      label: const Text("Password"),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 10),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[400]!),
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[400]!),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: TextButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          context.read<SignInBloc>().add(
+                                SignInEvent.registerWithEmailAndPasword(
+                                    emailController.text,
+                                    passwordController.text),
+                              );
+                        }
+                      },
+                      child: const Text("Sign Up"),
+                    ),
+                  ),
+                  BlocBuilder<SignInBloc, SignInState>(
+                    builder: (context, state) {
+                      return state.isSubmitting
+                          ? const LinearProgressIndicator()
+                          : const SizedBox();
+                    },
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text("Already have an account?"),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => SignInForm(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "Log In",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),

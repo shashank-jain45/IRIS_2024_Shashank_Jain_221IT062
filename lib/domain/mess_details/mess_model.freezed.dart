@@ -22,6 +22,8 @@ Mess _$MessFromJson(Map<String, dynamic> json) {
 mixin _$Mess {
   String get messName => throw _privateConstructorUsedError;
   int get totalSeats => throw _privateConstructorUsedError;
+  double get messCharge => throw _privateConstructorUsedError;
+  Menu get menuDetails => throw _privateConstructorUsedError;
   int? get noOfUsersRegistered => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +36,14 @@ abstract class $MessCopyWith<$Res> {
   factory $MessCopyWith(Mess value, $Res Function(Mess) then) =
       _$MessCopyWithImpl<$Res, Mess>;
   @useResult
-  $Res call({String messName, int totalSeats, int? noOfUsersRegistered});
+  $Res call(
+      {String messName,
+      int totalSeats,
+      double messCharge,
+      Menu menuDetails,
+      int? noOfUsersRegistered});
+
+  $MenuCopyWith<$Res> get menuDetails;
 }
 
 /// @nodoc
@@ -52,6 +61,8 @@ class _$MessCopyWithImpl<$Res, $Val extends Mess>
   $Res call({
     Object? messName = null,
     Object? totalSeats = null,
+    Object? messCharge = null,
+    Object? menuDetails = null,
     Object? noOfUsersRegistered = freezed,
   }) {
     return _then(_value.copyWith(
@@ -63,11 +74,27 @@ class _$MessCopyWithImpl<$Res, $Val extends Mess>
           ? _value.totalSeats
           : totalSeats // ignore: cast_nullable_to_non_nullable
               as int,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menuDetails: null == menuDetails
+          ? _value.menuDetails
+          : menuDetails // ignore: cast_nullable_to_non_nullable
+              as Menu,
       noOfUsersRegistered: freezed == noOfUsersRegistered
           ? _value.noOfUsersRegistered
           : noOfUsersRegistered // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuCopyWith<$Res> get menuDetails {
+    return $MenuCopyWith<$Res>(_value.menuDetails, (value) {
+      return _then(_value.copyWith(menuDetails: value) as $Val);
+    });
   }
 }
 
@@ -78,7 +105,15 @@ abstract class _$$MessImplCopyWith<$Res> implements $MessCopyWith<$Res> {
       __$$MessImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String messName, int totalSeats, int? noOfUsersRegistered});
+  $Res call(
+      {String messName,
+      int totalSeats,
+      double messCharge,
+      Menu menuDetails,
+      int? noOfUsersRegistered});
+
+  @override
+  $MenuCopyWith<$Res> get menuDetails;
 }
 
 /// @nodoc
@@ -93,6 +128,8 @@ class __$$MessImplCopyWithImpl<$Res>
   $Res call({
     Object? messName = null,
     Object? totalSeats = null,
+    Object? messCharge = null,
+    Object? menuDetails = null,
     Object? noOfUsersRegistered = freezed,
   }) {
     return _then(_$MessImpl(
@@ -104,6 +141,14 @@ class __$$MessImplCopyWithImpl<$Res>
           ? _value.totalSeats
           : totalSeats // ignore: cast_nullable_to_non_nullable
               as int,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menuDetails: null == menuDetails
+          ? _value.menuDetails
+          : menuDetails // ignore: cast_nullable_to_non_nullable
+              as Menu,
       noOfUsersRegistered: freezed == noOfUsersRegistered
           ? _value.noOfUsersRegistered
           : noOfUsersRegistered // ignore: cast_nullable_to_non_nullable
@@ -113,11 +158,14 @@ class __$$MessImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$MessImpl implements _Mess {
   const _$MessImpl(
       {required this.messName,
       required this.totalSeats,
+      required this.messCharge,
+      required this.menuDetails,
       this.noOfUsersRegistered = 0});
 
   factory _$MessImpl.fromJson(Map<String, dynamic> json) =>
@@ -128,12 +176,16 @@ class _$MessImpl implements _Mess {
   @override
   final int totalSeats;
   @override
+  final double messCharge;
+  @override
+  final Menu menuDetails;
+  @override
   @JsonKey()
   final int? noOfUsersRegistered;
 
   @override
   String toString() {
-    return 'Mess(messName: $messName, totalSeats: $totalSeats, noOfUsersRegistered: $noOfUsersRegistered)';
+    return 'Mess(messName: $messName, totalSeats: $totalSeats, messCharge: $messCharge, menuDetails: $menuDetails, noOfUsersRegistered: $noOfUsersRegistered)';
   }
 
   @override
@@ -145,14 +197,18 @@ class _$MessImpl implements _Mess {
                 other.messName == messName) &&
             (identical(other.totalSeats, totalSeats) ||
                 other.totalSeats == totalSeats) &&
+            (identical(other.messCharge, messCharge) ||
+                other.messCharge == messCharge) &&
+            (identical(other.menuDetails, menuDetails) ||
+                other.menuDetails == menuDetails) &&
             (identical(other.noOfUsersRegistered, noOfUsersRegistered) ||
                 other.noOfUsersRegistered == noOfUsersRegistered));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, messName, totalSeats, noOfUsersRegistered);
+  int get hashCode => Object.hash(runtimeType, messName, totalSeats, messCharge,
+      menuDetails, noOfUsersRegistered);
 
   @JsonKey(ignore: true)
   @override
@@ -172,6 +228,8 @@ abstract class _Mess implements Mess {
   const factory _Mess(
       {required final String messName,
       required final int totalSeats,
+      required final double messCharge,
+      required final Menu menuDetails,
       final int? noOfUsersRegistered}) = _$MessImpl;
 
   factory _Mess.fromJson(Map<String, dynamic> json) = _$MessImpl.fromJson;
@@ -180,6 +238,10 @@ abstract class _Mess implements Mess {
   String get messName;
   @override
   int get totalSeats;
+  @override
+  double get messCharge;
+  @override
+  Menu get menuDetails;
   @override
   int? get noOfUsersRegistered;
   @override

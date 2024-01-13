@@ -46,11 +46,33 @@ class MessDetailsBloc extends Bloc<MessDetailsEvent, MessDetailsState> {
           ),
           (r) => emit(
             state.copyWith(
-              isFetching: true,
+              isFetching: false,
             ),
           ),
         );
       },
     );
+
+    on<DeleteMess>((event, emit) async {
+      emit(
+        state.copyWith(isFetching: true),
+      );
+      final Either<FirestoreFailure, Unit> failureOrSuccess =
+          await iMessDetailsRepository.deleteMess(event.messName);
+
+      failureOrSuccess.fold(
+        (l) => emit(
+          state.copyWith(
+            failure: optionOf(l),
+            isFetching: false,
+          ),
+        ),
+        (r) => emit(
+          state.copyWith(
+            isFetching: false,
+          ),
+        ),
+      );
+    });
   }
 }

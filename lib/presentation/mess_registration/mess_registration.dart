@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:mess_management_app/application/mess_registration/bloc/mess_registration_bloc.dart';
 import 'package:mess_management_app/domain/core/injection.dart';
 import 'package:mess_management_app/presentation/mess/mess_info_page.dart';
@@ -8,8 +9,10 @@ class MessRegistrationPage extends StatelessWidget {
   const MessRegistrationPage({
     Key? key,
     required this.isAdmin,
+    required this.messName,
   }) : super(key: key);
   final bool isAdmin;
+  final String messName;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -36,6 +39,7 @@ class MessRegistrationPage extends StatelessWidget {
                       body: MessInfoPage(
                         t: 0,
                         isAdmin: isAdmin,
+                        messName: messName,
                       )),
                 ),
         );

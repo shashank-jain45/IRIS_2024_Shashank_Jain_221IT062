@@ -30,9 +30,8 @@ class RegistrationPage extends StatelessWidget {
                 const Text("Name"),
                 TextFormField(
                     controller: nameController,
-                    validator: (value) => (value ?? "").isEmpty
-                        ? "Name cannont be empty"
-                        : null,
+                    validator: (value) =>
+                        (value ?? "").isEmpty ? "Name cannont be empty" : null,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     )),
@@ -55,11 +54,10 @@ class RegistrationPage extends StatelessWidget {
                         context.read<UserRepositoryBloc>().add(
                               UserRepositoryEvent.setUserData(
                                 UserClass(
-                                  name: nameController.text,
-                                  rollNumber:
-                                      rollNumberControleer.text,
-                                  email: "",
-                                ),
+                                    name: nameController.text,
+                                    rollNumber: rollNumberControleer.text,
+                                    email: "",
+                                    messCharge: 0),
                               ),
                             );
 

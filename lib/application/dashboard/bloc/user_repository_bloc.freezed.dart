@@ -19,44 +19,44 @@ mixin _$UserRepositoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchData,
-    required TResult Function() transactionData,
     required TResult Function(UserClass user) setUserData,
+    required TResult Function(Option<FirestoreFailure> failure) checkInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchData,
-    TResult? Function()? transactionData,
     TResult? Function(UserClass user)? setUserData,
+    TResult? Function(Option<FirestoreFailure> failure)? checkInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchData,
-    TResult Function()? transactionData,
     TResult Function(UserClass user)? setUserData,
+    TResult Function(Option<FirestoreFailure> failure)? checkInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchUserData value) fetchData,
-    required TResult Function(FetchTransactionData value) transactionData,
     required TResult Function(SetUserData value) setUserData,
+    required TResult Function(checkConnection value) checkInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchUserData value)? fetchData,
-    TResult? Function(FetchTransactionData value)? transactionData,
     TResult? Function(SetUserData value)? setUserData,
+    TResult? Function(checkConnection value)? checkInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchUserData value)? fetchData,
-    TResult Function(FetchTransactionData value)? transactionData,
     TResult Function(SetUserData value)? setUserData,
+    TResult Function(checkConnection value)? checkInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,8 +128,8 @@ class _$FetchUserDataImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchData,
-    required TResult Function() transactionData,
     required TResult Function(UserClass user) setUserData,
+    required TResult Function(Option<FirestoreFailure> failure) checkInternet,
   }) {
     return fetchData();
   }
@@ -138,8 +138,8 @@ class _$FetchUserDataImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchData,
-    TResult? Function()? transactionData,
     TResult? Function(UserClass user)? setUserData,
+    TResult? Function(Option<FirestoreFailure> failure)? checkInternet,
   }) {
     return fetchData?.call();
   }
@@ -148,8 +148,8 @@ class _$FetchUserDataImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchData,
-    TResult Function()? transactionData,
     TResult Function(UserClass user)? setUserData,
+    TResult Function(Option<FirestoreFailure> failure)? checkInternet,
     required TResult orElse(),
   }) {
     if (fetchData != null) {
@@ -162,8 +162,8 @@ class _$FetchUserDataImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchUserData value) fetchData,
-    required TResult Function(FetchTransactionData value) transactionData,
     required TResult Function(SetUserData value) setUserData,
+    required TResult Function(checkConnection value) checkInternet,
   }) {
     return fetchData(this);
   }
@@ -172,8 +172,8 @@ class _$FetchUserDataImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchUserData value)? fetchData,
-    TResult? Function(FetchTransactionData value)? transactionData,
     TResult? Function(SetUserData value)? setUserData,
+    TResult? Function(checkConnection value)? checkInternet,
   }) {
     return fetchData?.call(this);
   }
@@ -182,8 +182,8 @@ class _$FetchUserDataImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchUserData value)? fetchData,
-    TResult Function(FetchTransactionData value)? transactionData,
     TResult Function(SetUserData value)? setUserData,
+    TResult Function(checkConnection value)? checkInternet,
     required TResult orElse(),
   }) {
     if (fetchData != null) {
@@ -195,124 +195,6 @@ class _$FetchUserDataImpl
 
 abstract class FetchUserData implements UserRepositoryEvent {
   const factory FetchUserData() = _$FetchUserDataImpl;
-}
-
-/// @nodoc
-abstract class _$$FetchTransactionDataImplCopyWith<$Res> {
-  factory _$$FetchTransactionDataImplCopyWith(_$FetchTransactionDataImpl value,
-          $Res Function(_$FetchTransactionDataImpl) then) =
-      __$$FetchTransactionDataImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchTransactionDataImplCopyWithImpl<$Res>
-    extends _$UserRepositoryEventCopyWithImpl<$Res, _$FetchTransactionDataImpl>
-    implements _$$FetchTransactionDataImplCopyWith<$Res> {
-  __$$FetchTransactionDataImplCopyWithImpl(_$FetchTransactionDataImpl _value,
-      $Res Function(_$FetchTransactionDataImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchTransactionDataImpl
-    with DiagnosticableTreeMixin
-    implements FetchTransactionData {
-  const _$FetchTransactionDataImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserRepositoryEvent.transactionData()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'UserRepositoryEvent.transactionData'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchTransactionDataImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchData,
-    required TResult Function() transactionData,
-    required TResult Function(UserClass user) setUserData,
-  }) {
-    return transactionData();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchData,
-    TResult? Function()? transactionData,
-    TResult? Function(UserClass user)? setUserData,
-  }) {
-    return transactionData?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchData,
-    TResult Function()? transactionData,
-    TResult Function(UserClass user)? setUserData,
-    required TResult orElse(),
-  }) {
-    if (transactionData != null) {
-      return transactionData();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchUserData value) fetchData,
-    required TResult Function(FetchTransactionData value) transactionData,
-    required TResult Function(SetUserData value) setUserData,
-  }) {
-    return transactionData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchUserData value)? fetchData,
-    TResult? Function(FetchTransactionData value)? transactionData,
-    TResult? Function(SetUserData value)? setUserData,
-  }) {
-    return transactionData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchUserData value)? fetchData,
-    TResult Function(FetchTransactionData value)? transactionData,
-    TResult Function(SetUserData value)? setUserData,
-    required TResult orElse(),
-  }) {
-    if (transactionData != null) {
-      return transactionData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchTransactionData implements UserRepositoryEvent {
-  const factory FetchTransactionData() = _$FetchTransactionDataImpl;
 }
 
 /// @nodoc
@@ -398,8 +280,8 @@ class _$SetUserDataImpl with DiagnosticableTreeMixin implements SetUserData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchData,
-    required TResult Function() transactionData,
     required TResult Function(UserClass user) setUserData,
+    required TResult Function(Option<FirestoreFailure> failure) checkInternet,
   }) {
     return setUserData(user);
   }
@@ -408,8 +290,8 @@ class _$SetUserDataImpl with DiagnosticableTreeMixin implements SetUserData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchData,
-    TResult? Function()? transactionData,
     TResult? Function(UserClass user)? setUserData,
+    TResult? Function(Option<FirestoreFailure> failure)? checkInternet,
   }) {
     return setUserData?.call(user);
   }
@@ -418,8 +300,8 @@ class _$SetUserDataImpl with DiagnosticableTreeMixin implements SetUserData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchData,
-    TResult Function()? transactionData,
     TResult Function(UserClass user)? setUserData,
+    TResult Function(Option<FirestoreFailure> failure)? checkInternet,
     required TResult orElse(),
   }) {
     if (setUserData != null) {
@@ -432,8 +314,8 @@ class _$SetUserDataImpl with DiagnosticableTreeMixin implements SetUserData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchUserData value) fetchData,
-    required TResult Function(FetchTransactionData value) transactionData,
     required TResult Function(SetUserData value) setUserData,
+    required TResult Function(checkConnection value) checkInternet,
   }) {
     return setUserData(this);
   }
@@ -442,8 +324,8 @@ class _$SetUserDataImpl with DiagnosticableTreeMixin implements SetUserData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchUserData value)? fetchData,
-    TResult? Function(FetchTransactionData value)? transactionData,
     TResult? Function(SetUserData value)? setUserData,
+    TResult? Function(checkConnection value)? checkInternet,
   }) {
     return setUserData?.call(this);
   }
@@ -452,8 +334,8 @@ class _$SetUserDataImpl with DiagnosticableTreeMixin implements SetUserData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchUserData value)? fetchData,
-    TResult Function(FetchTransactionData value)? transactionData,
     TResult Function(SetUserData value)? setUserData,
+    TResult Function(checkConnection value)? checkInternet,
     required TResult orElse(),
   }) {
     if (setUserData != null) {
@@ -473,10 +355,163 @@ abstract class SetUserData implements UserRepositoryEvent {
 }
 
 /// @nodoc
+abstract class _$$checkConnectionImplCopyWith<$Res> {
+  factory _$$checkConnectionImplCopyWith(_$checkConnectionImpl value,
+          $Res Function(_$checkConnectionImpl) then) =
+      __$$checkConnectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Option<FirestoreFailure> failure});
+}
+
+/// @nodoc
+class __$$checkConnectionImplCopyWithImpl<$Res>
+    extends _$UserRepositoryEventCopyWithImpl<$Res, _$checkConnectionImpl>
+    implements _$$checkConnectionImplCopyWith<$Res> {
+  __$$checkConnectionImplCopyWithImpl(
+      _$checkConnectionImpl _value, $Res Function(_$checkConnectionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$checkConnectionImpl(
+      null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Option<FirestoreFailure>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$checkConnectionImpl
+    with DiagnosticableTreeMixin
+    implements checkConnection {
+  const _$checkConnectionImpl(this.failure);
+
+  @override
+  final Option<FirestoreFailure> failure;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UserRepositoryEvent.checkInternet(failure: $failure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UserRepositoryEvent.checkInternet'))
+      ..add(DiagnosticsProperty('failure', failure));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$checkConnectionImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$checkConnectionImplCopyWith<_$checkConnectionImpl> get copyWith =>
+      __$$checkConnectionImplCopyWithImpl<_$checkConnectionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchData,
+    required TResult Function(UserClass user) setUserData,
+    required TResult Function(Option<FirestoreFailure> failure) checkInternet,
+  }) {
+    return checkInternet(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchData,
+    TResult? Function(UserClass user)? setUserData,
+    TResult? Function(Option<FirestoreFailure> failure)? checkInternet,
+  }) {
+    return checkInternet?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchData,
+    TResult Function(UserClass user)? setUserData,
+    TResult Function(Option<FirestoreFailure> failure)? checkInternet,
+    required TResult orElse(),
+  }) {
+    if (checkInternet != null) {
+      return checkInternet(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchUserData value) fetchData,
+    required TResult Function(SetUserData value) setUserData,
+    required TResult Function(checkConnection value) checkInternet,
+  }) {
+    return checkInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchUserData value)? fetchData,
+    TResult? Function(SetUserData value)? setUserData,
+    TResult? Function(checkConnection value)? checkInternet,
+  }) {
+    return checkInternet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchUserData value)? fetchData,
+    TResult Function(SetUserData value)? setUserData,
+    TResult Function(checkConnection value)? checkInternet,
+    required TResult orElse(),
+  }) {
+    if (checkInternet != null) {
+      return checkInternet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class checkConnection implements UserRepositoryEvent {
+  const factory checkConnection(final Option<FirestoreFailure> failure) =
+      _$checkConnectionImpl;
+
+  Option<FirestoreFailure> get failure;
+  @JsonKey(ignore: true)
+  _$$checkConnectionImplCopyWith<_$checkConnectionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$UserRepositoryState {
   UserClass? get user => throw _privateConstructorUsedError;
   bool get isFetching => throw _privateConstructorUsedError;
   Option<FirestoreFailure> get failureOrSuccess =>
+      throw _privateConstructorUsedError;
+  Either<Option<FirestoreFailure>, Unit> get internetConnection =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -493,7 +528,8 @@ abstract class $UserRepositoryStateCopyWith<$Res> {
   $Res call(
       {UserClass? user,
       bool isFetching,
-      Option<FirestoreFailure> failureOrSuccess});
+      Option<FirestoreFailure> failureOrSuccess,
+      Either<Option<FirestoreFailure>, Unit> internetConnection});
 
   $UserClassCopyWith<$Res>? get user;
 }
@@ -514,6 +550,7 @@ class _$UserRepositoryStateCopyWithImpl<$Res, $Val extends UserRepositoryState>
     Object? user = freezed,
     Object? isFetching = null,
     Object? failureOrSuccess = null,
+    Object? internetConnection = null,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
@@ -528,6 +565,10 @@ class _$UserRepositoryStateCopyWithImpl<$Res, $Val extends UserRepositoryState>
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<FirestoreFailure>,
+      internetConnection: null == internetConnection
+          ? _value.internetConnection
+          : internetConnection // ignore: cast_nullable_to_non_nullable
+              as Either<Option<FirestoreFailure>, Unit>,
     ) as $Val);
   }
 
@@ -555,7 +596,8 @@ abstract class _$$userRepositoryImplCopyWith<$Res>
   $Res call(
       {UserClass? user,
       bool isFetching,
-      Option<FirestoreFailure> failureOrSuccess});
+      Option<FirestoreFailure> failureOrSuccess,
+      Either<Option<FirestoreFailure>, Unit> internetConnection});
 
   @override
   $UserClassCopyWith<$Res>? get user;
@@ -575,6 +617,7 @@ class __$$userRepositoryImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? isFetching = null,
     Object? failureOrSuccess = null,
+    Object? internetConnection = null,
   }) {
     return _then(_$userRepositoryImpl(
       user: freezed == user
@@ -589,6 +632,10 @@ class __$$userRepositoryImplCopyWithImpl<$Res>
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<FirestoreFailure>,
+      internetConnection: null == internetConnection
+          ? _value.internetConnection
+          : internetConnection // ignore: cast_nullable_to_non_nullable
+              as Either<Option<FirestoreFailure>, Unit>,
     ));
   }
 }
@@ -601,7 +648,8 @@ class _$userRepositoryImpl
   const _$userRepositoryImpl(
       {required this.user,
       required this.isFetching,
-      required this.failureOrSuccess});
+      required this.failureOrSuccess,
+      required this.internetConnection});
 
   @override
   final UserClass? user;
@@ -609,10 +657,12 @@ class _$userRepositoryImpl
   final bool isFetching;
   @override
   final Option<FirestoreFailure> failureOrSuccess;
+  @override
+  final Either<Option<FirestoreFailure>, Unit> internetConnection;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserRepositoryState(user: $user, isFetching: $isFetching, failureOrSuccess: $failureOrSuccess)';
+    return 'UserRepositoryState(user: $user, isFetching: $isFetching, failureOrSuccess: $failureOrSuccess, internetConnection: $internetConnection)';
   }
 
   @override
@@ -622,7 +672,8 @@ class _$userRepositoryImpl
       ..add(DiagnosticsProperty('type', 'UserRepositoryState'))
       ..add(DiagnosticsProperty('user', user))
       ..add(DiagnosticsProperty('isFetching', isFetching))
-      ..add(DiagnosticsProperty('failureOrSuccess', failureOrSuccess));
+      ..add(DiagnosticsProperty('failureOrSuccess', failureOrSuccess))
+      ..add(DiagnosticsProperty('internetConnection', internetConnection));
   }
 
   @override
@@ -634,12 +685,14 @@ class _$userRepositoryImpl
             (identical(other.isFetching, isFetching) ||
                 other.isFetching == isFetching) &&
             (identical(other.failureOrSuccess, failureOrSuccess) ||
-                other.failureOrSuccess == failureOrSuccess));
+                other.failureOrSuccess == failureOrSuccess) &&
+            (identical(other.internetConnection, internetConnection) ||
+                other.internetConnection == internetConnection));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, user, isFetching, failureOrSuccess);
+  int get hashCode => Object.hash(
+      runtimeType, user, isFetching, failureOrSuccess, internetConnection);
 
   @JsonKey(ignore: true)
   @override
@@ -651,10 +704,11 @@ class _$userRepositoryImpl
 
 abstract class _userRepository implements UserRepositoryState {
   const factory _userRepository(
-          {required final UserClass? user,
-          required final bool isFetching,
-          required final Option<FirestoreFailure> failureOrSuccess}) =
-      _$userRepositoryImpl;
+      {required final UserClass? user,
+      required final bool isFetching,
+      required final Option<FirestoreFailure> failureOrSuccess,
+      required final Either<Option<FirestoreFailure>, Unit>
+          internetConnection}) = _$userRepositoryImpl;
 
   @override
   UserClass? get user;
@@ -662,6 +716,8 @@ abstract class _userRepository implements UserRepositoryState {
   bool get isFetching;
   @override
   Option<FirestoreFailure> get failureOrSuccess;
+  @override
+  Either<Option<FirestoreFailure>, Unit> get internetConnection;
   @override
   @JsonKey(ignore: true)
   _$$userRepositoryImplCopyWith<_$userRepositoryImpl> get copyWith =>

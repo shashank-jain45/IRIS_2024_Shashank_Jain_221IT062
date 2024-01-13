@@ -29,6 +29,8 @@ mixin _$UserClass {
   MessReallocationModel? get messReallocationModel =>
       throw _privateConstructorUsedError;
   bool? get isAdmin => throw _privateConstructorUsedError;
+  double get messCharge => throw _privateConstructorUsedError;
+  Menu? get menu => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,9 +51,12 @@ abstract class $UserClassCopyWith<$Res> {
       String messName,
       double messBalance,
       MessReallocationModel? messReallocationModel,
-      bool? isAdmin});
+      bool? isAdmin,
+      double messCharge,
+      Menu? menu});
 
   $MessReallocationModelCopyWith<$Res>? get messReallocationModel;
+  $MenuCopyWith<$Res>? get menu;
 }
 
 /// @nodoc
@@ -75,6 +80,8 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
     Object? messBalance = null,
     Object? messReallocationModel = freezed,
     Object? isAdmin = freezed,
+    Object? messCharge = null,
+    Object? menu = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -109,6 +116,14 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
           ? _value.isAdmin
           : isAdmin // ignore: cast_nullable_to_non_nullable
               as bool?,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menu: freezed == menu
+          ? _value.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as Menu?,
     ) as $Val);
   }
 
@@ -122,6 +137,18 @@ class _$UserClassCopyWithImpl<$Res, $Val extends UserClass>
     return $MessReallocationModelCopyWith<$Res>(_value.messReallocationModel!,
         (value) {
       return _then(_value.copyWith(messReallocationModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuCopyWith<$Res>? get menu {
+    if (_value.menu == null) {
+      return null;
+    }
+
+    return $MenuCopyWith<$Res>(_value.menu!, (value) {
+      return _then(_value.copyWith(menu: value) as $Val);
     });
   }
 }
@@ -142,10 +169,14 @@ abstract class _$$UserClassImplCopyWith<$Res>
       String messName,
       double messBalance,
       MessReallocationModel? messReallocationModel,
-      bool? isAdmin});
+      bool? isAdmin,
+      double messCharge,
+      Menu? menu});
 
   @override
   $MessReallocationModelCopyWith<$Res>? get messReallocationModel;
+  @override
+  $MenuCopyWith<$Res>? get menu;
 }
 
 /// @nodoc
@@ -167,6 +198,8 @@ class __$$UserClassImplCopyWithImpl<$Res>
     Object? messBalance = null,
     Object? messReallocationModel = freezed,
     Object? isAdmin = freezed,
+    Object? messCharge = null,
+    Object? menu = freezed,
   }) {
     return _then(_$UserClassImpl(
       name: null == name
@@ -201,12 +234,21 @@ class __$$UserClassImplCopyWithImpl<$Res>
           ? _value.isAdmin
           : isAdmin // ignore: cast_nullable_to_non_nullable
               as bool?,
+      messCharge: null == messCharge
+          ? _value.messCharge
+          : messCharge // ignore: cast_nullable_to_non_nullable
+              as double,
+      menu: freezed == menu
+          ? _value.menu
+          : menu // ignore: cast_nullable_to_non_nullable
+              as Menu?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$UserClassImpl implements _UserClass {
   const _$UserClassImpl(
       {required this.name,
@@ -216,7 +258,9 @@ class _$UserClassImpl implements _UserClass {
       this.messName = "N/A",
       this.messBalance = 0,
       this.messReallocationModel,
-      this.isAdmin = false});
+      this.isAdmin = false,
+      this.messCharge = 0,
+      this.menu});
 
   factory _$UserClassImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserClassImplFromJson(json);
@@ -240,10 +284,15 @@ class _$UserClassImpl implements _UserClass {
   @override
   @JsonKey()
   final bool? isAdmin;
+  @override
+  @JsonKey()
+  final double messCharge;
+  @override
+  final Menu? menu;
 
   @override
   String toString() {
-    return 'UserClass(name: $name, id: $id, rollNumber: $rollNumber, email: $email, messName: $messName, messBalance: $messBalance, messReallocationModel: $messReallocationModel, isAdmin: $isAdmin)';
+    return 'UserClass(name: $name, id: $id, rollNumber: $rollNumber, email: $email, messName: $messName, messBalance: $messBalance, messReallocationModel: $messReallocationModel, isAdmin: $isAdmin, messCharge: $messCharge, menu: $menu)';
   }
 
   @override
@@ -262,13 +311,16 @@ class _$UserClassImpl implements _UserClass {
                 other.messBalance == messBalance) &&
             (identical(other.messReallocationModel, messReallocationModel) ||
                 other.messReallocationModel == messReallocationModel) &&
-            (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin));
+            (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin) &&
+            (identical(other.messCharge, messCharge) ||
+                other.messCharge == messCharge) &&
+            (identical(other.menu, menu) || other.menu == menu));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, id, rollNumber, email,
-      messName, messBalance, messReallocationModel, isAdmin);
+      messName, messBalance, messReallocationModel, isAdmin, messCharge, menu);
 
   @JsonKey(ignore: true)
   @override
@@ -293,7 +345,9 @@ abstract class _UserClass implements UserClass {
       final String messName,
       final double messBalance,
       final MessReallocationModel? messReallocationModel,
-      final bool? isAdmin}) = _$UserClassImpl;
+      final bool? isAdmin,
+      final double messCharge,
+      final Menu? menu}) = _$UserClassImpl;
 
   factory _UserClass.fromJson(Map<String, dynamic> json) =
       _$UserClassImpl.fromJson;
@@ -314,6 +368,10 @@ abstract class _UserClass implements UserClass {
   MessReallocationModel? get messReallocationModel;
   @override
   bool? get isAdmin;
+  @override
+  double get messCharge;
+  @override
+  Menu? get menu;
   @override
   @JsonKey(ignore: true)
   _$$UserClassImplCopyWith<_$UserClassImpl> get copyWith =>

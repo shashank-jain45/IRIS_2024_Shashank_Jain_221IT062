@@ -10,6 +10,6 @@ class MessUserInfoPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Mess Info"),
         ),
-        body: MessInfoPage( t: 0, isAdmin: true));
+        body: MessInfoPage( t: 0, isAdmin: true,messName: null,));
   }
 }

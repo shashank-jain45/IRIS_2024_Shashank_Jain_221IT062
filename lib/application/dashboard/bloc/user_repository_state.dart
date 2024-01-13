@@ -6,10 +6,12 @@ class UserRepositoryState with _$UserRepositoryState {
     required UserClass? user,
     required bool isFetching,
     required Option<FirestoreFailure> failureOrSuccess,
+    required Either<Option<FirestoreFailure>,Unit> internetConnection,
   }) = _userRepository;
   factory UserRepositoryState.intial() => UserRepositoryState(
         failureOrSuccess: none(),
         isFetching: true,
         user: null,
+        internetConnection: right(unit),
       );
 }
