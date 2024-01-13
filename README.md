@@ -1,16 +1,40 @@
-# mess_management_app
+# Mess Management App
 
-A new Flutter project.
+## Implemented Features
+1. Follwed DDD(Domain Driver Design Principles)
+2. Used BLoC for State Management.
+3. User/Admin login/logout
+4. User Registration using Firebase.
+5. User Dashboard displaying name, email, roll number, mess balance, and current mess information.
+6. Role-based access control for Admin and User roles.
+7. Mess Registration
+8. Mess Reallocation.
+9. Local Data Caching
+10. Internet connectivity status
+11. Balance top-up for users
+12. Admin can create and delete mess
+13. They can approve/reject mess change requests from users
+14. Admins can individually deallocate or reallocate users. 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Non-implemented/Planned features
+1. Notification for balance reminder and reallocation requests.
+2. Leave requests by user
+3. Week-wise Menu addition
 
-A few resources to get you started if this is your first Flutter project:
+## Known-bugs
+1. Page is popped when the user applies for mess reallocation
+2. DDD structure (Reso coder did it this way :sweat_smile:)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## References
+1. Reso-Coder for DDD
+2. Stack-overflow for certain errors
+3. Firestore documentation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Operating System Used
+Windows
+FLutter SDK 3.13.0
+
+## Interest toward UI/UX
+I am interested more in the implementation part than the UI.
+
