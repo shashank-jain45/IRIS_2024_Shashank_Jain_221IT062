@@ -23,6 +23,7 @@
 
 ## Known-bugs
 1. Page is popped when the user applies for mess reallocation
+2. DDD structure (Reso coder did it this way :sweat_smile:)
 
 ## References
 1. Reso-Coder for DDD
