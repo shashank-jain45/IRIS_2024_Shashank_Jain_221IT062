@@ -2,19 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import 'package:mess_management_app/infrastructure/core/firebase_notifications.dart';
+
 import '../../application/mess_balance/bloc/mess_balance_repository_bloc.dart';
 import '../../domain/core/injection.dart';
 import '../../domain/mess_balance/transaction_model.dart';
 
-class MessBalancePage extends StatelessWidget {
-  MessBalancePage({
+class MessBalancePage extends StatefulWidget {
+  const MessBalancePage({
     Key? key,
     required this.messCharge,
     required this.messName,
+    required this.userName,
   }) : super(key: key);
-  final TextEditingController _amount = TextEditingController();
   final double messCharge;
   final String messName;
+  final String userName;
+
+  @override
+  State<MessBalancePage> createState() => _MessBalancePageState();
+}
+
+class _MessBalancePageState extends State<MessBalancePage> {
+  final TextEditingController _amount = TextEditingController();
+
+  final PushNotifications notifications = PushNotifications();
+  @override
+  void initState() {
+    notifications.firebaseInit(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -80,6 +98,11 @@ class MessBalancePage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          notifications.sendNotifications(
+                              widget.userName,
+                              "Your mess Balance is: ${state.messBalance + double.parse(
+                                    _amount.text.trim(),
+                                  )}  added:₹ ${_amount.text}");
                           context.read<MessBalanceRepositoryBloc>().add(
                                 MessBalanceRepositoryEvent.addMessBalance(
                                   Transaction(
@@ -145,7 +168,7 @@ class MessBalancePage extends StatelessWidget {
                                         ? SizedBox(
                                             width: 90,
                                             child: Text(
-                                              "₹ ${trans[index].debit} to $messName",
+                                              "₹ ${trans[index].debit} to ${widget.messName}",
                                               style: const TextStyle(
                                                 color: Colors.red,
                                               ),
@@ -192,6 +215,9 @@ class MessBalancePage extends StatelessWidget {
                       icon: const Icon(Icons.payment),
                       onPressed: () {
                         if (state.messBalance < 200) {
+                          notifications.sendNotifications(widget.userName,
+                              "Your mess Balance: ${state.messBalance} is low, top-up now");
+
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               backgroundColor: Color.fromRGBO(114, 134, 250, 1),
@@ -204,11 +230,14 @@ class MessBalancePage extends StatelessWidget {
                             ),
                           );
                         } else {
+                          notifications.sendNotifications(widget.userName,
+                              "Paid ${widget.messCharge} to ${widget.messName}!");
                           context.read<MessBalanceRepositoryBloc>().add(
                                 MessBalanceRepositoryEvent.addMessBalance(
                                   Transaction(
-                                    debit: messCharge,
-                                    messBalance: state.messBalance - messCharge,
+                                    debit: widget.messCharge,
+                                    messBalance:
+                                        state.messBalance - widget.messCharge,
                                     time: DateTime.now(),
                                   ),
                                 ),

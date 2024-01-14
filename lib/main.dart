@@ -2,8 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'firebase_notifications.dart';
+import 'package:mess_management_app/domain/menu/menu_model.dart';
+import 'package:mess_management_app/domain/mess_reallocation/mess_reallocation.dart';
+import 'package:path_provider/path_provider.dart';
+import 'infrastructure/core/firebase_notifications.dart';
 import 'application/auth/bloc/sign_in_bloc.dart';
 import 'application/auth/currentAuthStateOfUser/auth_bloc.dart';
 import 'application/dashboard/bloc/user_repository_bloc.dart';
@@ -25,6 +29,11 @@ void main() async {
   PushNotifications.init();
   FirebaseMessaging.onBackgroundMessage(_firebaseBackgorundMessage);
   configureInjection(Environment.dev);
+  final appDocumentDirectory = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
+  Hive.registerAdapter(men());
+  Hive.registerAdapter(notif());
+  await Hive.openBox("noti");
   runApp(const MyApp());
 }
 

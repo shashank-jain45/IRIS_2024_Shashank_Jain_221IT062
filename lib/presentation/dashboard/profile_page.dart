@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:mess_management_app/domain/mess_reallocation/mess_reallocation.dart';
+import 'package:mess_management_app/infrastructure/core/firebase_notifications.dart';
 import '../../application/auth/currentAuthStateOfUser/auth_bloc.dart';
 import '../../application/dashboard/bloc/user_repository_bloc.dart';
 import '../../domain/dashboard/user_data_model.dart';
@@ -10,13 +15,50 @@ import '../sign_in/sign_in_page.dart';
 
 import '../mess_reallocation/mess_reallocation_page.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({
     super.key,
     required this.user,
   });
 
   final UserClass user;
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  final PushNotifications notifications = PushNotifications();
+
+  @override
+  void initState() {
+    notifications.firebaseInit(context);
+    sendNoti();
+    super.initState();
+  }
+
+  void sendNoti() async {
+    await Hive.openBox("noti");
+    MessReallocationModel? mode = await Hive.box("noti").get("key");
+    MessReallocationModel? fmode = widget.user.messReallocationModel;
+
+    if (fmode != null &&
+        (mode?.isApproved != fmode.isApproved ||
+            mode?.isPending != fmode.isPending ||
+            fmode.requestedMess != mode?.requestedMess)) {
+      mode = fmode;
+      final String add = mode.isPending!
+          ? "Pending"
+          : mode.isApproved!
+              ? "Approved"
+              : "Rejected";
+      notifications.sendNotifications(
+        widget.user.name,
+        "Your reallocation request is ${add}",
+      );
+      await Hive.box('noti').put("key", mode);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      user.name,
+                      widget.user.name,
                       style: const TextStyle(
                           fontSize: 20, fontWeight: FontWeight.w600),
                     ),
@@ -94,7 +136,7 @@ class ProfilePage extends StatelessWidget {
                     ListTile(
                       leading: const Icon(Icons.person),
                       title: const Text("Roll Number"),
-                      trailing: Text(user.rollNumber),
+                      trailing: Text(widget.user.rollNumber),
                       shape: const RoundedRectangleBorder(
                         side: BorderSide(color: Colors.blueGrey),
                         borderRadius: BorderRadiusDirectional.vertical(
@@ -106,7 +148,7 @@ class ProfilePage extends StatelessWidget {
                     ListTile(
                       leading: const Icon(Icons.email),
                       title: const Text("Email"),
-                      trailing: Text(user.email),
+                      trailing: Text(widget.user.email),
                       shape: const RoundedRectangleBorder(
                         side: BorderSide(color: Colors.blueGrey),
                         borderRadius: BorderRadiusDirectional.vertical(
@@ -128,19 +170,19 @@ class ProfilePage extends StatelessWidget {
 
                     ListTile(
                       leading: const Icon(Icons.restaurant),
-                      onTap: user.messName == "N/A"
+                      onTap: widget.user.messName == "N/A"
                           ? null
                           : () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                     builder: (context) => MenuPage(
-                                          menu: user.menu!,
-                                          messName: user.messName,
+                                          menu: widget.user.menu!,
+                                          messName: widget.user.messName,
                                         )),
                               );
                             },
                       title: const Text("Current Mess"),
-                      trailing: Text(user.messName),
+                      trailing: Text(widget.user.messName),
                       shape: const RoundedRectangleBorder(
                         side: BorderSide(color: Colors.blueGrey),
                         borderRadius: BorderRadiusDirectional.vertical(
@@ -157,7 +199,9 @@ class ProfilePage extends StatelessWidget {
                             .push(
                               MaterialPageRoute(
                                 builder: (context) => MessBalancePage(
-                                    messCharge: user.messCharge,messName: user.messName),
+                                    messCharge: widget.user.messCharge,
+                                    messName: widget.user.messName,
+                                    userName: widget.user.name),
                               ),
                             )
                             .then(
@@ -171,7 +215,7 @@ class ProfilePage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            "Rs. ${user.messBalance} ",
+                            "Rs. ${widget.user.messBalance} ",
                             style: const TextStyle(
                                 color: Colors.green, fontSize: 20),
                           ),
@@ -191,8 +235,8 @@ class ProfilePage extends StatelessWidget {
                     ListTile(
                       leading: const Icon(Icons.person_add_alt),
                       onTap: () {
-                        user.messName == "N/A"
-                            ? user.messBalance < 1000
+                        widget.user.messName == "N/A"
+                            ? widget.user.messBalance < 1000
                                 ? ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                       backgroundColor:
@@ -210,8 +254,8 @@ class ProfilePage extends StatelessWidget {
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             MessRegistrationPage(
-                                          isAdmin: user.isAdmin!,
-                                          messName: user.messName,
+                                          isAdmin: widget.user.isAdmin!,
+                                          messName: widget.user.messName,
                                         ),
                                       ),
                                     )
@@ -248,7 +292,7 @@ class ProfilePage extends StatelessWidget {
                     ListTile(
                       leading: const Icon(Icons.restart_alt),
                       onTap: () {
-                        user.messName == "N/A"
+                        widget.user.messName == "N/A"
                             ? ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   backgroundColor:
@@ -265,8 +309,8 @@ class ProfilePage extends StatelessWidget {
                                 .push(
                                   MaterialPageRoute(
                                     builder: (context) => MessReallocationPage(
-                                      model: user.messReallocationModel,
-                                      messName: user.messName,
+                                      model: widget.user.messReallocationModel,
+                                      messName: widget.user.messName,
                                     ),
                                   ),
                                 )
@@ -316,5 +360,11 @@ class ProfilePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    Hive.box("noti").close();
+    super.dispose();
   }
 }

@@ -20,9 +20,13 @@ Menu _$MenuFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Menu {
+  @HiveField(0)
   String get breakfast => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get lunch => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get snacks => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get dinner => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +39,11 @@ abstract class $MenuCopyWith<$Res> {
   factory $MenuCopyWith(Menu value, $Res Function(Menu) then) =
       _$MenuCopyWithImpl<$Res, Menu>;
   @useResult
-  $Res call({String breakfast, String lunch, String snacks, String dinner});
+  $Res call(
+      {@HiveField(0) String breakfast,
+      @HiveField(1) String lunch,
+      @HiveField(2) String snacks,
+      @HiveField(3) String dinner});
 }
 
 /// @nodoc
@@ -84,7 +92,11 @@ abstract class _$$MenuImplCopyWith<$Res> implements $MenuCopyWith<$Res> {
       __$$MenuImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String breakfast, String lunch, String snacks, String dinner});
+  $Res call(
+      {@HiveField(0) String breakfast,
+      @HiveField(1) String lunch,
+      @HiveField(2) String snacks,
+      @HiveField(3) String dinner});
 }
 
 /// @nodoc
@@ -125,23 +137,28 @@ class __$$MenuImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 1, adapterName: "men")
 class _$MenuImpl implements _Menu {
   const _$MenuImpl(
-      {required this.breakfast,
-      required this.lunch,
-      required this.snacks,
-      required this.dinner});
+      {@HiveField(0) required this.breakfast,
+      @HiveField(1) required this.lunch,
+      @HiveField(2) required this.snacks,
+      @HiveField(3) required this.dinner});
 
   factory _$MenuImpl.fromJson(Map<String, dynamic> json) =>
       _$$MenuImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String breakfast;
   @override
+  @HiveField(1)
   final String lunch;
   @override
+  @HiveField(2)
   final String snacks;
   @override
+  @HiveField(3)
   final String dinner;
 
   @override
@@ -182,20 +199,24 @@ class _$MenuImpl implements _Menu {
 
 abstract class _Menu implements Menu {
   const factory _Menu(
-      {required final String breakfast,
-      required final String lunch,
-      required final String snacks,
-      required final String dinner}) = _$MenuImpl;
+      {@HiveField(0) required final String breakfast,
+      @HiveField(1) required final String lunch,
+      @HiveField(2) required final String snacks,
+      @HiveField(3) required final String dinner}) = _$MenuImpl;
 
   factory _Menu.fromJson(Map<String, dynamic> json) = _$MenuImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get breakfast;
   @override
+  @HiveField(1)
   String get lunch;
   @override
+  @HiveField(2)
   String get snacks;
   @override
+  @HiveField(3)
   String get dinner;
   @override
   @JsonKey(ignore: true)

@@ -21,11 +21,17 @@ MessReallocationModel _$MessReallocationModelFromJson(
 
 /// @nodoc
 mixin _$MessReallocationModel {
+  @HiveField(0)
   bool? get isPending => throw _privateConstructorUsedError;
+  @HiveField(1)
   bool? get isApproved => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get requestedMess => throw _privateConstructorUsedError;
+  @HiveField(3)
   DateTime get date => throw _privateConstructorUsedError;
+  @HiveField(4)
   double get messCharge => throw _privateConstructorUsedError;
+  @HiveField(5)
   Menu get menu => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,12 +47,12 @@ abstract class $MessReallocationModelCopyWith<$Res> {
       _$MessReallocationModelCopyWithImpl<$Res, MessReallocationModel>;
   @useResult
   $Res call(
-      {bool? isPending,
-      bool? isApproved,
-      String requestedMess,
-      DateTime date,
-      double messCharge,
-      Menu menu});
+      {@HiveField(0) bool? isPending,
+      @HiveField(1) bool? isApproved,
+      @HiveField(2) String requestedMess,
+      @HiveField(3) DateTime date,
+      @HiveField(4) double messCharge,
+      @HiveField(5) Menu menu});
 
   $MenuCopyWith<$Res> get menu;
 }
@@ -119,12 +125,12 @@ abstract class _$$MessReallocationModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? isPending,
-      bool? isApproved,
-      String requestedMess,
-      DateTime date,
-      double messCharge,
-      Menu menu});
+      {@HiveField(0) bool? isPending,
+      @HiveField(1) bool? isApproved,
+      @HiveField(2) String requestedMess,
+      @HiveField(3) DateTime date,
+      @HiveField(4) double messCharge,
+      @HiveField(5) Menu menu});
 
   @override
   $MenuCopyWith<$Res> get menu;
@@ -180,32 +186,39 @@ class __$$MessReallocationModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
+@HiveType(typeId: 6, adapterName: "notif")
 class _$MessReallocationModelImpl implements _MessReallocationModel {
   const _$MessReallocationModelImpl(
-      {this.isPending = true,
-      this.isApproved = false,
-      required this.requestedMess,
-      required this.date,
-      required this.messCharge,
-      required this.menu});
+      {@HiveField(0) this.isPending = true,
+      @HiveField(1) this.isApproved = false,
+      @HiveField(2) required this.requestedMess,
+      @HiveField(3) required this.date,
+      @HiveField(4) required this.messCharge,
+      @HiveField(5) required this.menu});
 
   factory _$MessReallocationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessReallocationModelImplFromJson(json);
 
   @override
   @JsonKey()
+  @HiveField(0)
   final bool? isPending;
   @override
   @JsonKey()
+  @HiveField(1)
   final bool? isApproved;
   @override
+  @HiveField(2)
   final String requestedMess;
   @override
+  @HiveField(3)
   final DateTime date;
   @override
+  @HiveField(4)
   final double messCharge;
   @override
+  @HiveField(5)
   final Menu menu;
 
   @override
@@ -252,27 +265,33 @@ class _$MessReallocationModelImpl implements _MessReallocationModel {
 
 abstract class _MessReallocationModel implements MessReallocationModel {
   const factory _MessReallocationModel(
-      {final bool? isPending,
-      final bool? isApproved,
-      required final String requestedMess,
-      required final DateTime date,
-      required final double messCharge,
-      required final Menu menu}) = _$MessReallocationModelImpl;
+      {@HiveField(0) final bool? isPending,
+      @HiveField(1) final bool? isApproved,
+      @HiveField(2) required final String requestedMess,
+      @HiveField(3) required final DateTime date,
+      @HiveField(4) required final double messCharge,
+      @HiveField(5) required final Menu menu}) = _$MessReallocationModelImpl;
 
   factory _MessReallocationModel.fromJson(Map<String, dynamic> json) =
       _$MessReallocationModelImpl.fromJson;
 
   @override
+  @HiveField(0)
   bool? get isPending;
   @override
+  @HiveField(1)
   bool? get isApproved;
   @override
+  @HiveField(2)
   String get requestedMess;
   @override
+  @HiveField(3)
   DateTime get date;
   @override
+  @HiveField(4)
   double get messCharge;
   @override
+  @HiveField(5)
   Menu get menu;
   @override
   @JsonKey(ignore: true)
