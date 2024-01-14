@@ -10,7 +10,7 @@
 7. Role-based access control for Admin and User roles.
 8. Mess Registration
 9. Mess Reallocation.
-10. Local Data Caching
+10. Local Data Caching with Hive and Firestore
 11. Internet connectivity status
 12. Balance top-up for users
 13. Admin can create and delete mess
