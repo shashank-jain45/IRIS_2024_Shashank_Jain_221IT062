@@ -21,6 +21,7 @@
 ## Non-implemented/Planned features
 1. Leave requests by user
 2. Week-wise Menu addition
+3. Responsive UI
 
 ## Known-bugs
 1. Page is popped when the user applies for mess reallocation
@@ -38,3 +39,5 @@ Flutter SDK 3.13.0
 ## Interest toward UI/UX
 I am interested more in the implementation part than the UI.
 
+##Link for Video and App
+https://drive.google.com/drive/u/2/folders/1IGOoKtqFZbkKvo0iDum_HcZxwvXtYhpV
