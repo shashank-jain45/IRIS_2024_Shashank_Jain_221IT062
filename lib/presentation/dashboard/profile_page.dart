@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
               : "Rejected";
       notifications.sendNotifications(
         widget.user.name,
-        "Your reallocation request is ${add}",
+        "Your reallocation request is $add",
       );
       await Hive.box('noti').put("key", mode);
     }

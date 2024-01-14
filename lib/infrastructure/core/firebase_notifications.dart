@@ -23,7 +23,7 @@ class PushNotifications {
 
   Future sendNotifications(String title, String body) async {
     final token = await _firebaseMessaging.getToken();
-    print(token);
+    // print(token);
     var data = {
       "to": token,
       "priority": "high",
@@ -49,8 +49,8 @@ class PushNotifications {
 
   void firebaseInit(BuildContext context) {
     FirebaseMessaging.onMessage.listen((message) {
-      print(message.notification!.title);
-      print(message.notification!.body);
+      // print(message.notification!.title);
+      // print(message.notification!.body);
 
       initLocalNotifications(context, message);
       showNotification(message);
@@ -105,7 +105,7 @@ class PushNotifications {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSetting,
       onDidReceiveNotificationResponse: (details) {
-        print(details.payload);
+        // print(details.payload);
       },
     );
   }
