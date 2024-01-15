@@ -7,7 +7,6 @@ import '../../domain/auth/i_auth_facade.dart';
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebase;
-
   FirebaseAuthFacade(this._firebase);
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(

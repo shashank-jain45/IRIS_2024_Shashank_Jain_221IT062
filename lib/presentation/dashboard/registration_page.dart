@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/dashboard/bloc/user_repository_bloc.dart';
 import '../../domain/dashboard/user_data_model.dart';
 
+///Page to register for new sign ups
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({
     super.key,

@@ -8,6 +8,7 @@ import '../../application/mess_balance/bloc/mess_balance_repository_bloc.dart';
 import '../../domain/core/injection.dart';
 import '../../domain/mess_balance/transaction_model.dart';
 
+///Page to display all the transactions and mess balance and to pay for meal
 class MessBalancePage extends StatefulWidget {
   const MessBalancePage({
     Key? key,

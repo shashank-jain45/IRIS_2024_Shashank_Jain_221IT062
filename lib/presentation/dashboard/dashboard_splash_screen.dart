@@ -7,6 +7,8 @@ import '../../application/dashboard/bloc/user_repository_bloc.dart';
 import '../../domain/dashboard/user_data_model.dart';
 import '../../domain/core/injection.dart';
 
+
+///Page to redirect users based on admin or not
 class DashboardSplashScreen extends StatelessWidget {
   const DashboardSplashScreen({super.key});
 

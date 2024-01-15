@@ -3,6 +3,8 @@ part 'transaction_model.freezed.dart';
 part 'transaction_model.g.dart';
 
 @freezed
+///Data class of  Transactions
+
 abstract class Transaction with _$Transaction {
   const factory Transaction(
       {required double messBalance,

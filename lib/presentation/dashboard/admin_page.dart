@@ -7,6 +7,7 @@ import '../mess_reallocation/mess_reallocation_request_page.dart';
 import '../mess_user_info_page/mess_user_info_page.dart';
 import '../sign_in/sign_in_page.dart';
 
+///Admin Dashboard
 class AdminPage extends StatelessWidget {
   const AdminPage({
     super.key,

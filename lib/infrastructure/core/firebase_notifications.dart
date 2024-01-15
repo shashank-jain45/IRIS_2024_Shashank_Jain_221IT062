@@ -10,6 +10,8 @@ class PushNotifications {
   static final _firebaseMessaging = FirebaseMessaging.instance;
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
+
+  ///Intializes the fcm by requesting for permission
   static Future init() async {
     await _firebaseMessaging.requestPermission(
         alert: true,
@@ -20,6 +22,8 @@ class PushNotifications {
         provisional: true,
         sound: true);
   }
+
+  ///Sends out notification request
 
   Future sendNotifications(String title, String body) async {
     final token = await _firebaseMessaging.getToken();
@@ -43,20 +47,19 @@ class PushNotifications {
       },
     );
   }
-  // void initLocalNotifications(){
-  //   var
-  // }
 
+  ///Listens to notifaction request and triggers [showNotification] when a new notifcation is found
   void firebaseInit(BuildContext context) {
-    FirebaseMessaging.onMessage.listen((message) {
+    FirebaseMessaging.onMessage.listen((message) async {
       // print(message.notification!.title);
       // print(message.notification!.body);
 
-      initLocalNotifications(context, message);
-      showNotification(message);
+      await initLocalNotifications(context, message);
+      await showNotification(message);
     });
   }
 
+  ///Displays new notification recieved with the help of local notification plugin
   Future showNotification(RemoteMessage message) async {
     AndroidNotificationChannel channel = AndroidNotificationChannel(
       Random.secure().nextInt(100000).toString(),
@@ -94,7 +97,8 @@ class PushNotifications {
     );
   }
 
-  void initLocalNotifications(
+  ///Intializes local notifications
+  Future initLocalNotifications(
       BuildContext context, RemoteMessage message) async {
     var androidInitialization =
         const AndroidInitializationSettings("@mipmap/ic_launcher");

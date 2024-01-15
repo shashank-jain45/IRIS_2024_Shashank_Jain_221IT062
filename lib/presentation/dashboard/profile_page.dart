@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
@@ -14,6 +13,7 @@ import '../sign_in/sign_in_page.dart';
 
 import '../mess_reallocation/mess_reallocation_page.dart';
 
+///Page to display profile of a user
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
     super.key,

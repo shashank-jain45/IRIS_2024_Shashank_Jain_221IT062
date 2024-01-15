@@ -5,6 +5,7 @@ import '../../application/mess_registration/bloc/mess_registration_bloc.dart';
 import '../../domain/core/injection.dart';
 import '../mess/mess_info_page.dart';
 
+///Page to register for a mess
 class MessRegistrationPage extends StatelessWidget {
   const MessRegistrationPage({
     Key? key,

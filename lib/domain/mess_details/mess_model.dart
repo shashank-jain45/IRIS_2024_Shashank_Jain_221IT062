@@ -6,6 +6,7 @@ part 'mess_model.g.dart';
 part 'mess_model.freezed.dart';
 
 @freezed
+///Data class to mess
 abstract class Mess with _$Mess {
   @JsonSerializable(explicitToJson: true)
   const factory Mess({

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../domain/menu/menu_model.dart';
 import 'menu_card.dart';
 
+///Page to display menu of  a paticular mess based on params
 class MenuPage extends StatelessWidget {
   const MenuPage({
     Key? key,

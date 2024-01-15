@@ -8,6 +8,7 @@ import '../../domain/mess_details/mess_model.dart';
 
 import '../../domain/menu/menu_model.dart';
 
+///Page to show all the users of a paticular mess
 class IndividualMessUserList extends StatelessWidget {
   const IndividualMessUserList({
     Key? key,
@@ -28,10 +29,13 @@ class IndividualMessUserList extends StatelessWidget {
       ),
       body: MultiBlocProvider(
         providers: [
+          //registes bloc to fetch the list of users registered for a paticular mess based on the param provided by list view builder
           BlocProvider(
             create: (context) => getit<MessUserInfoBloc>()
               ..add(MessUserInfoEvent.fetchList(messName)),
           ),
+          //registes bloc to change the mess of user whenever admin selects a new mess from drop- down menu
+
           BlocProvider(
             create: (context) => getit<MessRegistrationBloc>(),
           ),

@@ -11,6 +11,8 @@ part 'sign_in_event.dart';
 part 'sign_in_state.dart';
 
 @injectable
+
+  
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final IAuthFacade _authFacade;
   SignInBloc(

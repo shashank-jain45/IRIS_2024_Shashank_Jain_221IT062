@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'firestore_failure.freezed.dart';
 
 @freezed
+///Failures associated with firestore
 abstract class FirestoreFailure with _$FirestoreFailure {
   const factory FirestoreFailure.cacelled() = Cancelled;
   const factory FirestoreFailure.notFound() = NotFound;

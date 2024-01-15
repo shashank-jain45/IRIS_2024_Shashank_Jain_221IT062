@@ -5,6 +5,7 @@ import '../../domain/core/firestore_failure.dart';
 
 @injectable
 class InternetStatus {
+  ///Return a stream of current connection status of the app
   Stream<Option<FirestoreFailure>> stream() {
     final Connectivity connectivity = Connectivity();
     return connectivity.onConnectivityChanged.map(_internetStatus);

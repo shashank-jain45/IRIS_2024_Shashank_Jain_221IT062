@@ -6,6 +6,7 @@ import '../../application/mess_details/bloc/mess_details_bloc.dart';
 import '../../domain/menu/menu_model.dart';
 import '../../domain/mess_details/mess_model.dart';
 
+///Form to add a new mess
 class MessInputForm extends StatelessWidget {
   const MessInputForm({
     super.key,

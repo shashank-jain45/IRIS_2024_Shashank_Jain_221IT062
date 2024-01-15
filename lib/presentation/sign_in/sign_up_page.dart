@@ -18,6 +18,7 @@ class SignUpForm extends StatelessWidget {
       listener: (context, state) {
         state.authFailureOrSuccess.fold(
           () => unit,
+          //Shows a snackbar whenver any error occurs
           (a) => a.fold(
             (l) => ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -32,6 +33,8 @@ class SignUpForm extends StatelessWidget {
                 ),
               ),
             ),
+            //Naviagtes to dashboard splash screen to check if the user is admin or not and then further navigates the user to desired page
+
             (r) {
               return Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (context) => const DashboardSplashScreen(),

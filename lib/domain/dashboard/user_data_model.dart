@@ -6,6 +6,8 @@ part 'user_data_model.freezed.dart';
 part 'user_data_model.g.dart';
 
 @freezed
+
+///User data class
 abstract class UserClass with _$UserClass {
   @JsonSerializable(
     explicitToJson: true,

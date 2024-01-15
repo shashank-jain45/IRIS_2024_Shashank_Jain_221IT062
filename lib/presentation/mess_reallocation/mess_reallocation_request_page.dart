@@ -6,11 +6,12 @@ import '../../application/mess_reallocation/mess_reallocation_request/bloc/mess_
 import '../../domain/core/injection.dart';
 import '../../domain/dashboard/user_data_model.dart';
 
+///Page displayed to admin containing list of all reallocation requests
 class MessReallocationRequestPage extends StatelessWidget {
   MessReallocationRequestPage({
     Key? key,
   }) : super(key: key);
-  Option<bool> isApproved = none();
+  static Option<bool> isApproved = none();
   @override
   Widget build(BuildContext context) {
     return SafeArea(

@@ -6,6 +6,9 @@ part 'mess_reallocation.freezed.dart';
 part 'mess_reallocation.g.dart';
 
 @freezed
+
+///Data class of mess reallocation request
+
 abstract class MessReallocationModel with _$MessReallocationModel {
   @JsonSerializable(explicitToJson: true)
   @HiveType(typeId: 6, adapterName: "notif")

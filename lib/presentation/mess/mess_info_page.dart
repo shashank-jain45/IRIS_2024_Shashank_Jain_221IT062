@@ -13,6 +13,7 @@ import '../../domain/mess_details/mess_model.dart';
 import '../menu_page/menu_page.dart';
 
 class MessInfoPage extends StatelessWidget {
+  ///Display the list of all the messes and takes in params to determin the functions to be triggered based on whether the user is admin or not
   MessInfoPage({
     Key? key,
     required this.t,
@@ -20,6 +21,8 @@ class MessInfoPage extends StatelessWidget {
     required this.messName,
   }) : super(key: key);
   late List<Mess> messList;
+
+  ///Variable to determine if the function to trigger is registration or reallocation
   final int t;
   final bool isAdmin;
   final String? messName;
@@ -54,6 +57,7 @@ class MessInfoPage extends StatelessWidget {
                               child: InkWell(
                                 onTap: () {
                                   if (isAdmin) {
+                                    //To show all registered users of a mess when admin logs in
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
                                       builder: (context) =>
@@ -102,6 +106,8 @@ class MessInfoPage extends StatelessWidget {
                                                     if (messList[index]
                                                             .noOfUsersRegistered ==
                                                         0) {
+                                                      //To delete the mess
+
                                                       showDialog(
                                                         context: context,
                                                         builder: (context1) =>
@@ -180,6 +186,8 @@ class MessInfoPage extends StatelessWidget {
                                           fontSize: 20,
                                         ),
                                       ),
+                                      //To show menu page
+
                                       TextButton.icon(
                                         style: ButtonStyle(
                                           shape: MaterialStateProperty.all(
@@ -232,6 +240,7 @@ class MessInfoPage extends StatelessWidget {
                                                         ),
                                                       ),
                                                       onPressed: () {
+                                                        //This is called when usaer registers for mess
                                                         if (t == 0) {
                                                           context
                                                               .read<
@@ -251,6 +260,8 @@ class MessInfoPage extends StatelessWidget {
                                                                         .menuDetails),
                                                               );
                                                         } else {
+                                                          //This is called when user applies for mess reallocation
+
                                                           context
                                                               .read<
                                                                   MessReallocationBloc>()
