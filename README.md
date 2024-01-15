@@ -41,5 +41,7 @@ I am interested more in the implementation part than the UI.
 
 ## Link for Video and App
 https://drive.google.com/drive/u/2/folders/1IGOoKtqFZbkKvo0iDum_HcZxwvXtYhpV
+P.S - Turn on and off wifi and mobile data to test the internet status feature 
+  The notification in the app has currently been enabled on the user side, user is notified whenever there is an update in the mess reallocation status, It works when the app is in the foreground.
 
 https://github.com/shashank-jain45/mess_management_app/assets/120735507/10ca1758-caaf-40d8-bacf-1627bbaf01d2
